@@ -33,3 +33,13 @@ export interface Region {
   y: number; // Percentage 0-100
   description: string;
 }
+
+export interface GalleryItem {
+  id: string;
+  type: 'image' | 'video';
+  src: string;
+  poster?: string; // For videos
+  title: string;
+  category: string;
+  size: 'small' | 'medium' | 'large' | 'tall' | 'wide';
+}

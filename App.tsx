@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import WhyBlueFlare from './components/WhyBlueFlare';
 import GlobalReach from './components/GlobalReach';
+import Gallery from './components/Gallery';
 import Philosophy from './components/Philosophy';
 import Projects from './components/Projects';
 import FooterCTA from './components/FooterCTA';
@@ -17,6 +18,7 @@ function App() {
         <Services />
         <WhyBlueFlare />
         <GlobalReach />
+        <Gallery />
         <Philosophy />
         <Projects />
       </main>
