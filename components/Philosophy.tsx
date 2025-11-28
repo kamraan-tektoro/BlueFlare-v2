@@ -21,7 +21,7 @@ const steps = [
   { 
     id: "03",
     title: "Optimize", 
-    desc: "Leveraging real-time AI to balance loads and maximize asset efficiency.",
+    desc: "Leveraging real-time AI to balance loads and maximize asset efficiency",
     icon: BarChart3,
     color: "text-cyan-400"
   }
