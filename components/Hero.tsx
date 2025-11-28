@@ -1,6 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, Server, Zap } from 'lucide-react';
+import { ArrowRight, Activity, Server, Zap, Database } from 'lucide-react';
+import MetricCard from './hero/metric-card';
+
+type Metric = {
+  id: string;
+  value: number;
+  suffix?: string;
+  prefix?: string;
+  label: string;
+  description?: string;
+  icon?: any;
+  isPositive?: boolean;
+};
+
+const HERO_METRICS: Metric[] = [
+  {
+    id: "uptime",
+    value: 99.99,
+    suffix: "%",
+    label: "Grid & Site Uptime",
+    description: "Across generator and microgrid deployments",
+    icon: Server,
+  },
+  {
+    id: "carbonCapture",
+    value: 5200,
+    suffix: "+",
+    label: "Tons CO₂e Captured",
+    description: "Through optimized dispatch and fuel utilization",
+    icon: Zap,
+    isPositive: true,
+  },
+  {
+    id: "efficiency",
+    prefix: "+",
+    value: 18,
+    suffix: "%",
+    label: "Efficiency Gain",
+    description: "From AI-driven optimization and monitoring",
+    icon: Activity,
+  },
+  {
+    id: "capacity",
+    value: 75,
+    suffix: "+ MW",
+    label: "Installed Capacity",
+    description: "Combined capacity across BlueFlare projects",
+    icon: Database,
+  },
+];
 
 const Hero: React.FC = () => {
   const [mounted, setMounted] = useState(false);
@@ -49,7 +98,7 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-2 gap-12 items-center">
         
         {/* Text Content */}
         <div className="space-y-8">
@@ -95,51 +144,82 @@ const Hero: React.FC = () => {
             </motion.div>
         </div>
 
-        {/* Visual / Metrics Dashboard */}
-        <motion.div
-            className="hidden md:block relative"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-        >
-            <div className="relative aspect-square max-w-md mx-auto">
-                {/* Central "Flare" Core */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-brand-blue to-brand-navy blur-xl opacity-50 animate-pulse-slow"></div>
-                    <div className="relative w-24 h-24 rounded-full bg-brand-navy border border-brand-blue/50 flex items-center justify-center shadow-[0_0_30px_rgba(37,99,235,0.4)] z-10">
-                        <img 
-                            src="/blueflare-logo.webp" 
-                            alt="BlueFlare" 
-                            className="w-16 h-16 object-contain"
-                        />
-                    </div>
-                </div>
+        {/* Visual / Metrics Dashboard - Right Column */}
+        <div className="flex w-full justify-center items-center">
+            <div className="relative flex w-full max-w-xl justify-center mx-auto">
+                {/* Metric Grid - Perfect 2x2 */}
+                <motion.div 
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full"
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.15
+                            }
+                        }
+                    }}
+                >
+                    <MetricCard
+                        {...HERO_METRICS[0]}
+                        className="bg-slate-900/90 border-slate-700/50"
+                    />
+                    <MetricCard
+                        {...HERO_METRICS[1]}
+                        className="bg-slate-900/90 border-slate-700/50"
+                    />
+                    <MetricCard
+                        {...HERO_METRICS[2]}
+                        className="bg-slate-900/90 border-slate-700/50"
+                    />
+                    <MetricCard
+                        {...HERO_METRICS[3]}
+                        className="bg-slate-900/90 border-slate-700/50"
+                    />
+                </motion.div>
 
-                {/* Orbiting Metric Cards */}
-                <MetricCard 
-                    label="Grid Uptime" 
-                    value="99.99%" 
-                    icon={Server} 
-                    className="absolute top-10 left-0" 
-                    delay={1.2} 
-                />
-                 <MetricCard 
-                    label="Emissions" 
-                    value="-22%" 
-                    icon={Zap} 
-                    isPositive={false}
-                    className="absolute top-10 right-0" 
-                    delay={1.4} 
-                />
-                 <MetricCard 
-                    label="Efficiency" 
-                    value="+18%" 
-                    icon={Activity} 
-                    className="absolute bottom-10 left-10" 
-                    delay={1.6} 
-                />
+                {/* Centered Logo Orb (desktop only) */}
+                <motion.div
+                    className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:block"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                >
+                    <div className="relative flex items-center justify-center">
+                        <div className="absolute w-40 h-40 rounded-full bg-gradient-to-br from-brand-blue to-brand-navy blur-2xl opacity-50 animate-pulse-slow"></div>
+                        <div className="relative w-28 h-28 rounded-full bg-brand-navy border border-brand-blue/50 flex items-center justify-center shadow-[0_0_30px_rgba(37,99,235,0.4)] z-10">
+                            <img 
+                                src="/blueflare-logo.webp" 
+                                alt="BlueFlare" 
+                                className="w-16 h-16 object-contain"
+                            />
+                        </div>
+                    </div>
+                </motion.div>
             </div>
-        </motion.div>
+
+            {/* Mobile Logo (non-overlapping, below grid) */}
+            <div className="mt-6 flex justify-center lg:hidden">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                >
+                    <div className="relative flex items-center justify-center">
+                        <div className="absolute w-32 h-32 rounded-full bg-gradient-to-br from-brand-blue to-brand-navy blur-2xl opacity-40 animate-pulse-slow"></div>
+                        <div className="relative w-24 h-24 rounded-full bg-brand-navy border border-brand-blue/50 flex items-center justify-center shadow-[0_0_30px_rgba(37,99,235,0.4)] z-10">
+                            <img 
+                                src="/blueflare-logo.webp" 
+                                alt="BlueFlare" 
+                                className="w-14 h-14 object-contain"
+                            />
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        </div>
       </div>
       
       {/* Scroll Indicator */}
@@ -155,22 +235,5 @@ const Hero: React.FC = () => {
     </div>
   );
 };
-
-const MetricCard: React.FC<{ label: string; value: string; icon: any; className?: string; delay: number; isPositive?: boolean }> = ({ label, value, icon: Icon, className, delay, isPositive = true }) => (
-    <motion.div
-        className={`bg-slate-900/80 backdrop-blur border border-slate-700 p-4 rounded-xl shadow-2xl flex items-center gap-3 w-40 ${className}`}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay, duration: 0.5 }}
-    >
-        <div className={`p-2 rounded-lg ${isPositive ? 'bg-green-500/10 text-green-400' : 'bg-blue-500/10 text-brand-glow'}`}>
-            <Icon size={18} />
-        </div>
-        <div>
-            <div className="text-white font-bold text-lg">{value}</div>
-            <div className="text-xs text-slate-400 uppercase tracking-wide">{label}</div>
-        </div>
-    </motion.div>
-);
 
 export default Hero;
