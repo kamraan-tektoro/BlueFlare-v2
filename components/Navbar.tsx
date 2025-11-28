@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 
 const Navbar: React.FC = () => {
@@ -21,15 +21,16 @@ const Navbar: React.FC = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 h-28 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="relative w-8 h-8 flex items-center justify-center">
-             <div className="absolute inset-0 bg-brand-blue rounded-full blur opacity-50 group-hover:opacity-100 transition-opacity" />
-             <Zap className="w-6 h-6 text-white relative z-10" fill="currentColor" />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-white">
-            BlueFlare <span className="text-brand-light font-light">Energy</span>
+        <a href="#" className="flex flex-col items-center gap-1 group">
+          <img 
+            src="/blueflare-logo.webp" 
+            alt="BlueFlare" 
+            className="w-16 h-16 object-contain"
+          />
+          <span className="text-xl font-bold tracking-tight text-brand-blue text-center">
+            BlueFlare
           </span>
         </a>
 

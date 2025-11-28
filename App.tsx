@@ -10,6 +10,9 @@ import Projects from './components/Projects';
 import FooterCTA from './components/FooterCTA';
 
 function App() {
+  // Test if React is mounting
+  console.log('App component rendering');
+  
   return (
     <div className="bg-brand-dark min-h-screen text-white font-sans selection:bg-brand-blue selection:text-white overflow-x-hidden">
       <Navbar />

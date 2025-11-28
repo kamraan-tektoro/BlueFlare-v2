@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
   }));
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-28">
       {/* Background - Stylized Datacenter */}
       <div className="absolute inset-0 z-0 bg-brand-dark">
         {/* Grid Overlay */}
@@ -107,7 +107,11 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-32 h-32 rounded-full bg-gradient-to-br from-brand-blue to-brand-navy blur-xl opacity-50 animate-pulse-slow"></div>
                     <div className="relative w-24 h-24 rounded-full bg-brand-navy border border-brand-blue/50 flex items-center justify-center shadow-[0_0_30px_rgba(37,99,235,0.4)] z-10">
-                        <Zap className="w-10 h-10 text-brand-glow" fill="currentColor" />
+                        <img 
+                            src="/blueflare-logo.webp" 
+                            alt="BlueFlare" 
+                            className="w-16 h-16 object-contain"
+                        />
                     </div>
                 </div>
 

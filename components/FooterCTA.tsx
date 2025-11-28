@@ -37,11 +37,15 @@ const FooterCTA: React.FC = () => {
         {/* Footer Links */}
         <div className="grid md:grid-cols-4 gap-12 border-t border-slate-800 pt-12">
             <div className="col-span-1 md:col-span-2">
-                <div className="flex items-center gap-2 mb-6">
-                    <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center">
-                        <Zap className="w-5 h-5 text-white" fill="currentColor" />
+                <div className="flex flex-col gap-1 mb-6">
+                    <div className="flex justify-start items-center">
+                        <img 
+                            src="/blueflare-logo.webp" 
+                            alt="BlueFlare" 
+                            className="w-16 h-16 object-contain"
+                        />
                     </div>
-                    <span className="text-xl font-bold text-white">BlueFlare</span>
+                    <span className="text-xl font-bold tracking-tight text-brand-blue">BlueFlare</span>
                 </div>
                 <p className="text-slate-500 max-w-sm mb-6">
                     Decentralize. Decarbonize. Optimize. <br/>
