@@ -1,0 +1,81 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /images/
+Allow: /fonts/
+Allow: /.well-known/
+Allow: /favicon.ico
+
+# Critical routes that should stay indexable
+Allow: /sitemap.xml
+Allow: /server-sitemap.xml
+
+# Block framework/runtime-specific paths
+Disallow: /_next/
+Disallow: /_next/static/
+Disallow: /_next/data/
+Disallow: /_next/image
+Disallow: /_vercel/
+
+# Block API, auth, and operational surfaces
+Disallow: /api/
+Disallow: /api/private/
+Disallow: /auth/
+Disallow: /server-status/
+Disallow: /internal/
+Disallow: /dashboard/
+Disallow: /admin/
+Disallow: /files/
+Disallow: /tmp/
+Disallow: /staging/
+
+# Block preview/draft tooling and misc utilities
+Disallow: /draft/
+Disallow: /preview/
+Disallow: /studio/
+Disallow: /sandbox/
+Disallow: /playground/
+Disallow: /test/
+Disallow: /dev/
+Disallow: /experiments/
+
+# Prevent crawling of error documents
+Disallow: /404
+Disallow: /500
+
+# Parameters that create duplicate content
+Disallow: /*?ref=
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?session_id=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?msclkid=
+
+# Sitemaps
+Sitemap: https://blueflareenergy.com/sitemap.xml
+Sitemap: https://blueflareenergy.com/server-sitemap.xml
+
+# Crawl delay (optional, good for saving server load)
+# Crawl-delay: 10
+
+# Special rules for AI crawlers (optional)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Special rules for scrapers if needed (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

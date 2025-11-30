@@ -393,10 +393,10 @@ const GlobalReach: React.FC = () => {
   ];
 
   return (
-    <Section id="global" className="bg-[#0f172a] relative overflow-hidden">
-      <div className="text-center mb-16 relative z-10">
+    <Section id="global" className="bg-[#0f172a] relative overflow-hidden !py-14 !md:py-24">
+      <div className="text-center mb-10 relative z-10">
         <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
+            className="text-3xl md:text-4xl font-bold text-white mb-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

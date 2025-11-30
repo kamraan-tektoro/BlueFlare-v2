@@ -23,15 +23,12 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-28 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex flex-col items-center gap-1 group">
+        <a href="#" className="flex items-center gap-2 group">
           <img 
-            src="/blueflare-logo.webp" 
+            src="/BlueFlare-Logo-250-102px.png" 
             alt="BlueFlare" 
-            className="w-16 h-16 object-contain"
+            className="h-16 w-auto object-contain"
           />
-          <span className="text-xl font-bold tracking-tight text-brand-blue text-center">
-            BlueFlare
-          </span>
         </a>
 
         {/* Desktop Nav */}

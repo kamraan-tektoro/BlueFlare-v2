@@ -40,12 +40,11 @@ const FooterCTA: React.FC = () => {
                 <div className="flex flex-col gap-1 mb-6">
                     <div className="flex justify-start items-center">
                         <img 
-                            src="/blueflare-logo.webp" 
+                            src="/BlueFlare-Logo-250-102px.png" 
                             alt="BlueFlare" 
-                            className="w-16 h-16 object-contain"
+                            className="h-12 w-auto object-contain"
                         />
                     </div>
-                    <span className="text-xl font-bold tracking-tight text-brand-blue">BlueFlare</span>
                 </div>
                 <p className="text-slate-500 max-w-sm mb-6">
                     Decentralize. Decarbonize. Optimize. <br/>
