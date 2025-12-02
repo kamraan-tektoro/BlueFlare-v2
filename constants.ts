@@ -23,7 +23,7 @@ export const SERVICES: ServiceItem[] = [
     tags: ['Modular', 'Carbon-Ready', 'Efficient']
   },
   {
-    title: 'Ignite OS',
+    title: 'BlueFlare OS',
     description: 'Intelligent load-balancing AI software that optimizes grid performance and predictive maintenance in real-time.',
     icon: Activity,
     tags: ['AI', 'SaaS', 'Optimization']

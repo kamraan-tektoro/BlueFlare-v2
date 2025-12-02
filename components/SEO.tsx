@@ -71,7 +71,7 @@ export const StructuredData: React.FC = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Ignite OS",
+            "name": "BlueFlare OS",
             "description": "Intelligent load-balancing AI software that optimizes grid performance and predictive maintenance in real-time."
           }
         },
