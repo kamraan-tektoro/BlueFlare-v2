@@ -72,7 +72,7 @@ export const StructuredData: React.FC = () => {
           "itemOffered": {
             "@type": "Service",
             "name": "BlueFlare OS",
-            "description": "Intelligent load-balancing AI software that optimizes grid performance and predictive maintenance in real-time."
+            "description": "Intelligent load-balancing AI software that optimizes grid performance and predictive maintenance in real time."
           }
         },
         {
