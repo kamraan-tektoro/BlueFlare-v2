@@ -106,8 +106,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '2',
     type: 'image',
-    src: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=800',
-    title: 'Solar Array Inspection',
+    src: '/miners.webp',
+    title: 'Bitcoin Miners',
     category: 'Field Work',
     size: 'tall' // Spans 1x2
   },
