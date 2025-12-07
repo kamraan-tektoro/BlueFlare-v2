@@ -114,17 +114,17 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '3',
     type: 'image',
-    src: 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b0?auto=format&fit=crop&q=80&w=800',
-    title: 'Data Hall 04',
+    src: '/1MW gen pack.webp',
+    title: '1MW Generator',
     category: 'Infrastructure',
     size: 'medium' // 1x1
   },
   {
     id: '4',
     type: 'image',
-    src: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=800',
-    title: 'Turbine Maintenance',
-    category: 'Engineering',
+    src: '/Harvest-Site-True-North.webp',
+    title: 'Harvest Site, True North',
+    category: 'Field Work',
     size: 'medium'
   },
   {
