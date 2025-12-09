@@ -7,7 +7,8 @@ export default defineConfig(({ mode }) => {
     return {
       server: {
         port: 3000,
-        host: '0.0.0.0',
+        host: '0.0.0.0', // listen on all interfaces (incl. backoffice-dev-vm)
+        allowedHosts: ['backoffice-dev-vm'],
       },
       plugins: [react()],
       define: {

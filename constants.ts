@@ -5,7 +5,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Solutions', href: '#solutions' },
   { label: 'Why BlueFlare', href: '#why-us' },
   { label: 'Global Reach', href: '#global' },
-  { label: 'Gallery', href: '#gallery' },
+  { label: 'Gallery', href: '/gallery' },
   { label: 'Projects', href: '#projects' },
 ];
 
@@ -97,7 +97,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '1',
     type: 'video',
-    src: '/500KW Air Building.mp4',
+    src: '/generators/500KW Air Building.mp4',
     poster: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800',
     title: '500KW Air Building',
     category: 'Field Work',
@@ -106,7 +106,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '2',
     type: 'image',
-    src: '/miners.webp',
+    src: '/bitcoin-miners/miners.webp',
     title: 'Bitcoin Miners',
     category: 'Field Work',
     size: 'tall' // Spans 1x2
@@ -114,7 +114,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '3',
     type: 'image',
-    src: '/1MW gen pack.webp',
+    src: '/generators/1MW gen pack.webp',
     title: '1MW Generator',
     category: 'Infrastructure',
     size: 'medium' // 1x1
@@ -122,7 +122,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '4',
     type: 'image',
-    src: '/Harvest-Site-True-North.webp',
+    src: '/site/Harvest-Site-True-North.webp',
     title: 'Harvest Site, True North',
     category: 'Field Work',
     size: 'medium'
@@ -130,10 +130,34 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '5',
     type: 'video',
-    src: '/Installation.MOV',
+    src: '/installations/Installation.MOV',
     poster: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
     title: 'Installation',
     category: 'Field Work',
     size: 'large' // Spans 2x2
+  },
+  {
+    id: '6',
+    type: 'image',
+    src: '/site/Site-5.webp',
+    title: 'Site',
+    category: 'Field Work',
+    size: 'wide'
+  },
+  {
+    id: '7',
+    type: 'image',
+    src: '/installations/Installation-13.webp',
+    title: 'Installation',
+    category: 'Field Work',
+    size: 'medium'
+  },
+  {
+    id: '8',
+    type: 'image',
+    src: '/bitcoin-miners/Bitcoin-Miner-7.webp',
+    title: 'Bitcoin Miner',
+    category: 'Field Work',
+    size: 'medium'
   }
 ];

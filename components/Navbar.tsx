@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-28 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="/" className="flex items-center gap-2 group">
           <img 
             src="/BlueFlare-Logo-250-102px.png" 
             alt="BlueFlare" 

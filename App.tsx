@@ -9,11 +9,27 @@ import Philosophy from './components/Philosophy';
 import Projects from './components/Projects';
 import FooterCTA from './components/FooterCTA';
 import { StructuredData } from './components/SEO';
+import GalleryPage from './components/GalleryPage';
 
 function App() {
+  const normalizedPath =
+    typeof window !== 'undefined'
+      ? (window.location.pathname.replace(/\/+$/, '') || '/')
+      : '/';
+  const isGalleryRoute = normalizedPath === '/gallery';
+
   // Test if React is mounting
   console.log('App component rendering');
   
+  if (isGalleryRoute) {
+    return (
+      <>
+        <StructuredData />
+        <GalleryPage />
+      </>
+    );
+  }
+
   return (
     <>
       <StructuredData />
