@@ -396,12 +396,12 @@ const GlobalReach: React.FC = () => {
     <Section id="global" className="bg-[#0f172a] relative overflow-hidden !py-14 !md:py-24">
       <div className="text-center mb-10 relative z-10">
         <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-white mb-3"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
         >
-            Global Reach. Local Expertise.
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow">Global</span> Reach. Local <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow">Expertise</span>.
         </motion.h2>
         <p className="text-slate-400 max-w-xl mx-auto">
             From our headquarters in Alberta to major hubs in Texas and around the world, we're building a connected energy future.
