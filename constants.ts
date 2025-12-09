@@ -97,10 +97,10 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '1',
     type: 'video',
-    src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    src: '/500KW Air Building.mp4',
     poster: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800',
-    title: 'Grid Monitoring Center',
-    category: 'Operations',
+    title: '500KW Air Building',
+    category: 'Field Work',
     size: 'large' // Spans 2x2
   },
   {
@@ -130,10 +130,10 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: '5',
     type: 'video',
-    src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+    src: '/Installation.MOV',
     poster: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
-    title: 'Global Connectivity',
-    category: 'Network',
-    size: 'wide' // 2x1
+    title: 'Installation',
+    category: 'Field Work',
+    size: 'large' // Spans 2x2
   }
 ];

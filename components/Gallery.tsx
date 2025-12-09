@@ -25,15 +25,10 @@ const Gallery: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row justify-between items-end gap-4"
          >
             <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Immersive Field Operations</h2>
-                <p className="text-slate-400">See our infrastructure powering the world in real-time.</p>
-            </div>
-            <div className="flex gap-2">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse mt-2"></span>
-                <span className="text-xs font-mono text-red-400 uppercase tracking-widest">Live Feed Active</span>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Field Operations</h2>
+                <p className="text-slate-400">See our infrastructure powering the data centers.</p>
             </div>
          </motion.div>
       </div>
