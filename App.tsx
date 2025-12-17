@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import InsideBlueFlare from './components/InsideBlueFlare';
 import Services from './components/Services';
 import WhyBlueFlare from './components/WhyBlueFlare';
 import GlobalReach from './components/GlobalReach';
@@ -37,6 +38,7 @@ function App() {
         <Navbar />
         <main>
           <Hero />
+          <InsideBlueFlare />
           <Services />
           <WhyBlueFlare />
           <GlobalReach />

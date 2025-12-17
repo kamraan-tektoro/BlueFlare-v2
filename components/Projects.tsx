@@ -56,14 +56,26 @@ const ProjectCard: React.FC<{ project: ProjectItem; index: number }> = ({ projec
 const Projects: React.FC = () => {
   return (
     <Section id="projects" className="bg-brand-dark">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
-          <p className="text-slate-400">Powering critical infrastructure around the globe.</p>
-        </div>
-        <button className="hidden md:block text-brand-light hover:text-white font-medium transition-colors">
-          View All Case Studies &rarr;
-        </button>
+      {/* Header */}
+      <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+        <motion.h2 
+          className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow">Projects</span>
+        </motion.h2>
+        <motion.p 
+          className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          Powering critical infrastructure around the globe.
+        </motion.p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
