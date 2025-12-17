@@ -3,6 +3,7 @@ import { LucideIcon } from 'lucide-react';
 export interface NavItem {
   label: string;
   href: string;
+  children?: NavItem[];
 }
 
 export interface ServiceItem {
@@ -10,6 +11,7 @@ export interface ServiceItem {
   description: string;
   icon: LucideIcon;
   tags: string[];
+  href?: string;
 }
 
 export interface Stat {

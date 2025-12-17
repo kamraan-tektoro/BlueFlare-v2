@@ -42,47 +42,57 @@ const Services: React.FC = () => {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
-          {SERVICES.map((service, index) => (
-            <motion.article
-              key={service.title}
-              className="group relative flex flex-col justify-between h-full bg-brand-navy/20 backdrop-blur-sm border border-white/5 rounded-3xl p-6 md:p-8 hover:border-brand-blue/40 hover:shadow-[0_0_40px_rgba(37,99,235,0.15)] transition-all duration-500"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-            >
-              <div>
-                {/* Icon with Animated Ring */}
-                <div className="relative flex items-center justify-center w-16 h-16 mb-8">
-                  {/* Orbiting Ring */}
-                  <div className="absolute inset-0 rounded-full border border-brand-blue/30 animate-ring-orbit" />
-                  
-                  {/* Icon Tile */}
-                  <div className="relative z-10 w-10 h-10 flex items-center justify-center rounded-xl bg-brand-navy text-brand-glow border border-white/10 group-hover:border-brand-blue/50 group-hover:scale-105 transition-all duration-300">
-                    <service.icon className="w-5 h-5" />
+          {SERVICES.map((service, index) => {
+            const CardWrapper = service.href ? 'a' : 'div';
+            const cardProps = service.href ? { href: service.href } : {};
+            
+            return (
+              <motion.article
+                key={service.title}
+                className="group relative flex flex-col justify-between h-full"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <CardWrapper 
+                  {...cardProps}
+                  className={`flex flex-col justify-between h-full bg-brand-navy/20 backdrop-blur-sm border border-white/5 rounded-3xl p-6 md:p-8 hover:border-brand-blue/40 hover:shadow-[0_0_40px_rgba(37,99,235,0.15)] transition-all duration-500 ${service.href ? 'cursor-pointer' : ''}`}
+                >
+                  <div>
+                    {/* Icon with Animated Ring */}
+                    <div className="relative flex items-center justify-center w-16 h-16 mb-8">
+                      {/* Orbiting Ring */}
+                      <div className="absolute inset-0 rounded-full border border-brand-blue/30 animate-ring-orbit" />
+                      
+                      {/* Icon Tile */}
+                      <div className="relative z-10 w-10 h-10 flex items-center justify-center rounded-xl bg-brand-navy text-brand-glow border border-white/10 group-hover:border-brand-blue/50 group-hover:scale-105 transition-all duration-300">
+                        <service.icon className="w-5 h-5" />
+                      </div>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-8">
+                      {service.description}
+                    </p>
                   </div>
-                </div>
 
-                <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-8">
-                  {service.description}
-                </p>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {service.tags.map(tag => (
-                  <span 
-                    key={tag} 
-                    className="text-[11px] uppercase tracking-wider font-medium text-slate-500 border border-white/5 px-3 py-1 rounded-full group-hover:text-brand-blue/80 group-hover:border-brand-blue/20 transition-colors duration-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.article>
-          ))}
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {service.tags.map(tag => (
+                      <span 
+                        key={tag} 
+                        className="text-[11px] uppercase tracking-wider font-medium text-slate-500 border border-white/5 px-3 py-1 rounded-full group-hover:text-brand-blue/80 group-hover:border-brand-blue/20 transition-colors duration-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardWrapper>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

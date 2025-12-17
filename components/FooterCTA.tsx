@@ -65,10 +65,10 @@ const FooterCTA: React.FC = () => {
             <div>
                 <h4 className="text-white font-bold mb-6">Solutions</h4>
                 <ul className="space-y-4 text-slate-400 text-sm">
-                    <li><a href="#" className="hover:text-brand-light transition-colors">Generator Sales</a></li>
-                    <li><a href="#" className="hover:text-brand-light transition-colors">Carbon Cube</a></li>
-                    <li><a href="#" className="hover:text-brand-light transition-colors">Ignite OS</a></li>
-                    <li><a href="#" className="hover:text-brand-light transition-colors">Power Projects</a></li>
+                    <li><a href="#solutions" className="hover:text-brand-light transition-colors">Generator Sales</a></li>
+                    <li><a href="#solutions" className="hover:text-brand-light transition-colors">Carbon Cube</a></li>
+                    <li><a href="/blueflare-os" className="hover:text-brand-light transition-colors">BlueFlare OS™</a></li>
+                    <li><a href="#solutions" className="hover:text-brand-light transition-colors">Power Projects</a></li>
                 </ul>
             </div>
 

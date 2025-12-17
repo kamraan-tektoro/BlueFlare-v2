@@ -2,7 +2,16 @@ import { Zap, Server, Activity, Globe, Cpu, ShieldCheck, TrendingUp, Anchor } fr
 import { NavItem, ServiceItem, ProjectItem, Region, GalleryItem } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Solutions', href: '#solutions' },
+  { 
+    label: 'Solutions', 
+    href: '#solutions',
+    children: [
+      { label: 'Generator Sales & Install', href: '#solutions' },
+      { label: 'Carbon Cube', href: '#solutions' },
+      { label: 'BlueFlare OS™', href: '/blueflare-os' },
+      { label: 'Power Projects', href: '#solutions' },
+    ]
+  },
   { label: 'Why BlueFlare', href: '#why-us' },
   { label: 'Global Reach', href: '#global' },
   { label: 'Gallery', href: '/gallery' },
@@ -23,10 +32,11 @@ export const SERVICES: ServiceItem[] = [
     tags: ['Modular', 'Carbon-Ready', 'Efficient']
   },
   {
-    title: 'BlueFlare OS',
-    description: 'Intelligent load-balancing AI software that optimizes grid performance and predictive maintenance in real-time.',
+    title: 'BlueFlare OS™',
+    description: 'Ignition SCADA + DCIM integration for monitoring, control, and analytics.',
     icon: Activity,
-    tags: ['AI', 'SaaS', 'Optimization']
+    tags: ['SCADA', 'DCIM', 'Analytics'],
+    href: '/blueflare-os'
   },
   {
     title: 'Power Projects',

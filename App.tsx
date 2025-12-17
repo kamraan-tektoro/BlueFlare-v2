@@ -12,6 +12,7 @@ import FooterCTA from './components/FooterCTA';
 import { StructuredData } from './components/SEO';
 import GalleryPage from './components/GalleryPage';
 import ContactPage from './components/ContactPage';
+import BlueFlareOSPage from './components/BlueFlareOSPage';
 
 function App() {
   const normalizedPath =
@@ -20,6 +21,7 @@ function App() {
       : '/';
   const isGalleryRoute = normalizedPath === '/gallery';
   const isContactRoute = normalizedPath === '/contact';
+  const isBlueFlareOSRoute = normalizedPath === '/blueflare-os';
 
   // Test if React is mounting
   console.log('App component rendering');
@@ -38,6 +40,18 @@ function App() {
       <>
         <StructuredData />
         <ContactPage />
+      </>
+    );
+  }
+
+  if (isBlueFlareOSRoute) {
+    return (
+      <>
+        <StructuredData 
+          title="BlueFlare OS™ | BlueFlare"
+          description="BlueFlare's operational technology platform built on the Ignition SCADA framework with integrated DCIM functionality for real-time monitoring, automation, and analytics."
+        />
+        <BlueFlareOSPage />
       </>
     );
   }
