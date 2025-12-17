@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/contact"
             className="px-5 py-2.5 text-sm font-semibold text-white bg-brand-blue rounded-lg hover:bg-blue-500 transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(37,99,235,0.5)] active:scale-95"
           >
             Start a Conversation
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
               </a>
             ))}
              <a
-              href="#contact"
+              href="/contact"
               onClick={() => setIsOpen(false)}
               className="mt-4 w-full text-center px-5 py-3 text-base font-semibold text-white bg-brand-blue rounded-lg"
             >

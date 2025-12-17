@@ -11,6 +11,7 @@ import Projects from './components/Projects';
 import FooterCTA from './components/FooterCTA';
 import { StructuredData } from './components/SEO';
 import GalleryPage from './components/GalleryPage';
+import ContactPage from './components/ContactPage';
 
 function App() {
   const normalizedPath =
@@ -18,6 +19,7 @@ function App() {
       ? (window.location.pathname.replace(/\/+$/, '') || '/')
       : '/';
   const isGalleryRoute = normalizedPath === '/gallery';
+  const isContactRoute = normalizedPath === '/contact';
 
   // Test if React is mounting
   console.log('App component rendering');
@@ -27,6 +29,15 @@ function App() {
       <>
         <StructuredData />
         <GalleryPage />
+      </>
+    );
+  }
+
+  if (isContactRoute) {
+    return (
+      <>
+        <StructuredData />
+        <ContactPage />
       </>
     );
   }

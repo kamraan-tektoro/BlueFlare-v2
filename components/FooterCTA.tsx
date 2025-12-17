@@ -28,10 +28,13 @@ const FooterCTA: React.FC = () => {
             <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-10 relative z-10">
                 Ready to optimize your infrastructure? Partner with BlueFlare for end-to-end energy solutions.
             </p>
-            <button className="relative z-10 bg-white text-brand-blue font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto">
+            <a 
+                href="/contact"
+                className="relative z-10 bg-white text-brand-blue font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-2"
+            >
                 Start a Conversation
                 <ArrowRight size={20} />
-            </button>
+            </a>
         </motion.div>
 
         {/* Footer Links */}
@@ -75,7 +78,7 @@ const FooterCTA: React.FC = () => {
                     <li><a href="#" className="hover:text-brand-light transition-colors">About Us</a></li>
                     <li><a href="#" className="hover:text-brand-light transition-colors">Careers</a></li>
                     <li><a href="#" className="hover:text-brand-light transition-colors">News & Insights</a></li>
-                    <li><a href="#" className="hover:text-brand-light transition-colors">Contact</a></li>
+                    <li><a href="/contact" className="hover:text-brand-light transition-colors">Contact</a></li>
                 </ul>
             </div>
         </div>
