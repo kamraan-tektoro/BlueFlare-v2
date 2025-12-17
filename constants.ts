@@ -6,30 +6,32 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'Solutions', 
     href: '#solutions',
     children: [
-      { label: 'Generator Sales & Install', href: '#solutions' },
-      { label: 'Carbon Cube', href: '#solutions' },
+      { label: 'Generator Solutions', href: '/generator-solutions' },
+      { label: 'Carbon Cube™', href: '/carbon-cube' },
       { label: 'BlueFlare OS™', href: '/blueflare-os' },
-      { label: 'Power Projects', href: '#solutions' },
+      { label: 'Power Projects', href: '/power-projects' },
     ]
   },
   { label: 'Why BlueFlare', href: '#why-us' },
-  { label: 'Global Reach', href: '#global' },
-  { label: 'Gallery', href: '/gallery' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'About', href: '/about' },
 ];
 
 export const SERVICES: ServiceItem[] = [
   {
-    title: 'Generator Sales & Install',
-    description: 'Industrial-grade power generation procurement, installation, and lifecycle maintenance for mission-critical uptime.',
+    title: 'Generator Sales, Installation & Repair',
+    description: 'Turnkey generator equipment, install, commissioning, and maintenance for industrial and remote operations.',
     icon: Zap,
-    tags: ['Procurement', 'Installation', 'Maintenance']
+    tags: ['Sales', 'Installation', 'Maintenance'],
+    href: '/generator-solutions'
   },
   {
-    title: 'Carbon Cube',
-    description: 'Modular, carbon-capture-ready energy units designed to minimize footprint while maximizing output.',
+    title: 'Carbon Cube™',
+    description: 'Portable methane mitigation + instrument air in a compact field-deployable enclosure.',
     icon: Cpu,
-    tags: ['Modular', 'Carbon-Ready', 'Efficient']
+    tags: ['Portable', 'Methane Mitigation', 'Field-Ready'],
+    href: '/carbon-cube'
   },
   {
     title: 'BlueFlare OS™',
@@ -40,9 +42,10 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     title: 'Power Projects',
-    description: 'End-to-end infrastructure development, from site acquisition and permitting to construction and commissioning.',
+    description: 'Industrial, utility, and large-scale energy infrastructure delivered fast and reliably.',
     icon: Anchor,
-    tags: ['Development', 'Construction', 'EPC']
+    tags: ['Industrial', 'Utility', 'Infrastructure'],
+    href: '/power-projects'
   }
 ];
 

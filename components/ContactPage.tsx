@@ -117,7 +117,7 @@ const ContactPage: React.FC = () => {
         </section>
       </main>
 
-      <FooterCTA />
+      <FooterCTA showMainCTA={false} />
     </div>
   );
 };

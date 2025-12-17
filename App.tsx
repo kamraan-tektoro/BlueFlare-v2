@@ -13,6 +13,10 @@ import { StructuredData } from './components/SEO';
 import GalleryPage from './components/GalleryPage';
 import ContactPage from './components/ContactPage';
 import BlueFlareOSPage from './components/BlueFlareOSPage';
+import CarbonCubePage from './components/CarbonCubePage';
+import GeneratorSolutionsPage from './components/GeneratorSolutionsPage';
+import PowerProjectsPage from './components/PowerProjectsPage';
+import AboutPage from './components/AboutPage';
 
 function App() {
   const normalizedPath =
@@ -22,6 +26,10 @@ function App() {
   const isGalleryRoute = normalizedPath === '/gallery';
   const isContactRoute = normalizedPath === '/contact';
   const isBlueFlareOSRoute = normalizedPath === '/blueflare-os';
+  const isCarbonCubeRoute = normalizedPath === '/carbon-cube';
+  const isGeneratorSolutionsRoute = normalizedPath === '/generator-solutions';
+  const isPowerProjectsRoute = normalizedPath === '/power-projects';
+  const isAboutRoute = normalizedPath === '/about';
 
   // Test if React is mounting
   console.log('App component rendering');
@@ -52,6 +60,54 @@ function App() {
           description="BlueFlare's operational technology platform built on the Ignition SCADA framework with integrated DCIM functionality for real-time monitoring, automation, and analytics."
         />
         <BlueFlareOSPage />
+      </>
+    );
+  }
+
+  if (isCarbonCubeRoute) {
+    return (
+      <>
+        <StructuredData 
+          title="Carbon Cube™ | BlueFlare"
+          description="Portable methane mitigation and instrument air system for oil & gas field deployment."
+        />
+        <CarbonCubePage />
+      </>
+    );
+  }
+
+  if (isGeneratorSolutionsRoute) {
+    return (
+      <>
+        <StructuredData 
+          title="Generator Solutions | BlueFlare"
+          description="Turnkey generator sales, installation, commissioning, and maintenance for industrial and remote applications."
+        />
+        <GeneratorSolutionsPage />
+      </>
+    );
+  }
+
+  if (isPowerProjectsRoute) {
+    return (
+      <>
+        <StructuredData 
+          title="Power Projects | BlueFlare"
+          description="Industrial, utility, and large-scale energy infrastructure projects focused on reliability, speed, and efficiency."
+        />
+        <PowerProjectsPage />
+      </>
+    );
+  }
+
+  if (isAboutRoute) {
+    return (
+      <>
+        <StructuredData 
+          title="About Us | BlueFlare"
+          description="BlueFlare is an energy infrastructure company delivering intelligent, modular, and scalable power solutions for industrial, energy, and remote environments."
+        />
+        <AboutPage />
       </>
     );
   }

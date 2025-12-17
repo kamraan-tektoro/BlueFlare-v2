@@ -84,7 +84,7 @@ const GalleryPage: React.FC = () => {
         </Section>
       </main>
 
-      <FooterCTA />
+      <FooterCTA showMainCTA={false} />
 
       {selectedItem && (
         <div
