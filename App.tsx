@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import InsideBlueFlare from './components/InsideBlueFlare';
 import Services from './components/Services';
+import MineXSeries from './components/MineXSeries';
 import WhyBlueFlare from './components/WhyBlueFlare';
 import GlobalReach from './components/GlobalReach';
 import Gallery from './components/Gallery';
@@ -370,6 +371,7 @@ function App() {
           <Hero />
           <InsideBlueFlare />
           <Services />
+          <MineXSeries />
           <WhyBlueFlare />
           <GlobalReach />
           <Gallery />

@@ -1,5 +1,5 @@
-import { Zap, Server, Activity, Globe, Cpu, ShieldCheck, TrendingUp, Anchor } from 'lucide-react';
-import { NavItem, ServiceItem, ProjectItem, Region, GalleryItem } from './types';
+import { Zap, Server, Activity, Globe, Cpu, ShieldCheck, TrendingUp, Anchor, Package, Layers, Star, Factory, Building2 } from 'lucide-react';
+import { NavItem, ServiceItem, ProjectItem, Region, GalleryItem, MineXCard } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
   { 
@@ -183,5 +183,78 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Bitcoin Miner',
     category: 'Field Work',
     size: 'medium'
+  }
+];
+
+export const MINEX_CARDS: MineXCard[] = [
+  {
+    model: '50',
+    title: 'MineX™ 50',
+    description: 'Entry-level modular mining for low-volume wells.',
+    icon: Package,
+    stats: [
+      { label: 'Power', value: '50–75 kW' },
+      { label: 'Gas', value: '25–40 mcf/d' },
+      { label: 'ASICs', value: '12–18' },
+      { label: 'Hashrate', value: '1.4–2.2 PH/s' }
+    ],
+    tags: ['10ft Module', '36–48 mo Payback'],
+    href: '/minex-50'
+  },
+  {
+    model: '125',
+    title: 'MineX™ 125',
+    description: 'Scale-up system with balanced output and footprint.',
+    icon: Layers,
+    stats: [
+      { label: 'Power', value: '100–150 kW' },
+      { label: 'Gas', value: '50–80 mcf/d' },
+      { label: 'ASICs', value: '24–36' },
+      { label: 'Hashrate', value: '2.0–4.0 PH/s' }
+    ],
+    tags: ['10–20ft Module', '30–42 mo Payback'],
+    href: '/minex-125'
+  },
+  {
+    model: '250',
+    title: 'MineX™ 250',
+    description: 'Flagship sweet spot — optimal economics for most wells.',
+    icon: Star,
+    stats: [
+      { label: 'Power', value: '200–300 kW' },
+      { label: 'Gas', value: '100–150 mcf/d' },
+      { label: 'ASICs', value: '48–72' },
+      { label: 'Hashrate', value: '4.5–7.5 PH/s' }
+    ],
+    tags: ['20ft Module', '18–28 mo Payback'],
+    href: '/minex-250'
+  },
+  {
+    model: '500',
+    title: 'MineX™ 500',
+    description: 'High-capacity system with air or hydro cooling.',
+    icon: Factory,
+    stats: [
+      { label: 'Power', value: '400–550 kW' },
+      { label: 'Gas', value: '200–275 mcf/d' },
+      { label: 'ASICs', value: '96–126' },
+      { label: 'Hashrate', value: '10–15 PH/s' }
+    ],
+    tags: ['20–30ft Module', '18–26 mo Payback'],
+    href: '/minex-500'
+  },
+  {
+    model: '750',
+    title: 'MineX™ 750',
+    description: 'Industrial-scale monetization for high-volume assets.',
+    icon: Building2,
+    stats: [
+      { label: 'Power', value: '700–750 kW' },
+      { label: 'Gas', value: '300–350 mcf/d' },
+      { label: 'ASICs', value: '168–180' },
+      { label: 'Hashrate', value: '18–28 PH/s' }
+    ],
+    tags: ['30ft Module', '18–24 mo Payback'],
+    href: '/minex-750'
   }
 ];

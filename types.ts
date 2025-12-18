@@ -45,3 +45,18 @@ export interface GalleryItem {
   category: string;
   size: 'small' | 'medium' | 'large' | 'tall' | 'wide';
 }
+
+export interface MineXCardStat {
+  label: string;
+  value: string;
+}
+
+export interface MineXCard {
+  model: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  stats: MineXCardStat[];
+  tags: string[];
+  href: string;
+}
