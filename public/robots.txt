@@ -8,14 +8,6 @@ Allow: /favicon.ico
 
 # Critical routes that should stay indexable
 Allow: /sitemap.xml
-Allow: /server-sitemap.xml
-
-# Block framework/runtime-specific paths
-Disallow: /_next/
-Disallow: /_next/static/
-Disallow: /_next/data/
-Disallow: /_next/image
-Disallow: /_vercel/
 
 # Block API, auth, and operational surfaces
 Disallow: /api/
@@ -53,9 +45,8 @@ Disallow: /*?fbclid=
 Disallow: /*?gclid=
 Disallow: /*?msclkid=
 
-# Sitemaps
-Sitemap: https://blueflareenergy.com/sitemap.xml
-Sitemap: https://blueflareenergy.com/server-sitemap.xml
+# Sitemap
+Sitemap: https://www.goblueflare.com/sitemap.xml
 
 # Crawl delay (optional, good for saving server load)
 # Crawl-delay: 10

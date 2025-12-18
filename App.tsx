@@ -227,7 +227,11 @@ function App() {
   if (isGalleryRoute) {
     return (
       <>
-        <StructuredData />
+        <StructuredData 
+          title="Gallery | BlueFlare Energy"
+          description="Browse photos and videos of BlueFlare Energy's installations, generators, Bitcoin miners, and energy infrastructure projects."
+          path="/gallery"
+        />
         <GalleryPage />
       </>
     );
@@ -236,7 +240,11 @@ function App() {
   if (isContactRoute) {
     return (
       <>
-        <StructuredData />
+        <StructuredData 
+          title="Contact Us | BlueFlare Energy"
+          description="Get in touch with BlueFlare Energy for energy solutions, generator systems, and modular Bitcoin mining infrastructure."
+          path="/contact"
+        />
         <ContactPage />
       </>
     );
@@ -246,8 +254,9 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="BlueFlare OS™ | BlueFlare"
+          title="BlueFlare OS™ | BlueFlare Energy"
           description="BlueFlare's operational technology platform built on the Ignition SCADA framework with integrated DCIM functionality for real-time monitoring, automation, and analytics."
+          path="/blueflare-os"
         />
         <BlueFlareOSPage />
       </>
@@ -258,8 +267,9 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="Carbon Cube™ | BlueFlare"
+          title="Carbon Cube™ | BlueFlare Energy"
           description="Portable methane mitigation and instrument air system for oil & gas field deployment."
+          path="/carbon-cube"
         />
         <CarbonCubePage />
       </>
@@ -270,8 +280,9 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="Generator Solutions | BlueFlare"
+          title="Generator Solutions | BlueFlare Energy"
           description="Turnkey generator sales, installation, commissioning, and maintenance for industrial and remote applications."
+          path="/generator-solutions"
         />
         <GeneratorSolutionsPage />
       </>
@@ -282,8 +293,9 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="Power Projects | BlueFlare"
+          title="Power Projects | BlueFlare Energy"
           description="Industrial, utility, and large-scale energy infrastructure projects focused on reliability, speed, and efficiency."
+          path="/power-projects"
         />
         <PowerProjectsPage />
       </>
@@ -294,8 +306,9 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="About Us | BlueFlare"
+          title="About Us | BlueFlare Energy"
           description="BlueFlare is an energy infrastructure company delivering intelligent, modular, and scalable power solutions for industrial, energy, and remote environments."
+          path="/about"
         />
         <AboutPage />
       </>
@@ -306,8 +319,16 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="MineX™ 50 | BlueFlare"
+          title="MineX™ 50 | BlueFlare Energy"
           description="BlueFlare's smallest turnkey modular Bitcoin mining system, engineered for low-volume natural gas wells producing 25–40 mcf/d."
+          path="/minex-50"
+          type="product"
+          product={{
+            name: "MineX™ 50",
+            description: "Turnkey modular Bitcoin mining system for 25–40 mcf/d gas wells with 50–75 kW power output and 12–18 ASIC capacity.",
+            priceRange: "$48,100 – $76,350 USD",
+            sku: "MINEX-50"
+          }}
         />
         <MineX50Page />
       </>
@@ -318,8 +339,16 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="MineX™ 125 | BlueFlare"
+          title="MineX™ 125 | BlueFlare Energy"
           description="Modular mining system for 50–80 mcf/d gas wells, balancing compact footprint with strong economic output."
+          path="/minex-125"
+          type="product"
+          product={{
+            name: "MineX™ 125",
+            description: "Modular Bitcoin mining system for 50–80 mcf/d gas wells with 100–150 kW power output and 24–36 ASIC capacity.",
+            priceRange: "$76,600 – $119,100 USD",
+            sku: "MINEX-125"
+          }}
         />
         <MineX125Page />
       </>
@@ -330,8 +359,16 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="MineX™ 250 | BlueFlare"
+          title="MineX™ 250 | BlueFlare Energy"
           description="BlueFlare's flagship modular mining system for 100–150 mcf/d wells — the optimal economic sweet spot."
+          path="/minex-250"
+          type="product"
+          product={{
+            name: "MineX™ 250",
+            description: "Flagship modular Bitcoin mining system for 100–150 mcf/d gas wells with 200–300 kW power output and 48–72 ASIC capacity.",
+            priceRange: "$137,600 – $163,100 USD",
+            sku: "MINEX-250"
+          }}
         />
         <MineX250Page />
       </>
@@ -342,8 +379,16 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="MineX™ 500 | BlueFlare"
+          title="MineX™ 500 | BlueFlare Energy"
           description="High-capacity modular Bitcoin mining system for wells producing 200–275 mcf/d with air or hydro cooling."
+          path="/minex-500"
+          type="product"
+          product={{
+            name: "MineX™ 500",
+            description: "High-capacity modular Bitcoin mining system for 200–275 mcf/d gas wells with 400–550 kW power output and 96–126 ASIC capacity.",
+            priceRange: "$206,350 – $300,600 USD",
+            sku: "MINEX-500"
+          }}
         />
         <MineX500Page />
       </>
@@ -354,8 +399,16 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="MineX™ 750 | BlueFlare"
+          title="MineX™ 750 | BlueFlare Energy"
           description="BlueFlare's highest-capacity modular Bitcoin mining system for industrial-scale gas monetization at 300–350 mcf/d."
+          path="/minex-750"
+          type="product"
+          product={{
+            name: "MineX™ 750",
+            description: "Industrial-scale modular Bitcoin mining system for 300–350 mcf/d gas wells with 700–750 kW power output and 168–180 ASIC capacity.",
+            priceRange: "$323,100 – $439,350 USD",
+            sku: "MINEX-750"
+          }}
         />
         <MineX750Page />
       </>
@@ -364,7 +417,7 @@ function App() {
 
   return (
     <>
-      <StructuredData />
+      <StructuredData path="/" />
       <div className="bg-brand-dark min-h-screen text-white font-sans selection:bg-brand-blue selection:text-white overflow-x-hidden">
         <Navbar />
         <main>
