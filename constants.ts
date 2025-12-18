@@ -12,6 +12,17 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Power Projects', href: '/power-projects' },
     ]
   },
+  { 
+    label: 'MineX™ Series', 
+    href: '#minex',
+    children: [
+      { label: 'MineX™ 50', href: '/minex-50' },
+      { label: 'MineX™ 125', href: '/minex-125' },
+      { label: 'MineX™ 250', href: '/minex-250' },
+      { label: 'MineX™ 500', href: '/minex-500' },
+      { label: 'MineX™ 750', href: '/minex-750' },
+    ]
+  },
   { label: 'Why BlueFlare', href: '/#why-blueflare' },
   { label: 'Projects', href: '/#projects' },
   { label: 'Gallery', href: '/gallery' },

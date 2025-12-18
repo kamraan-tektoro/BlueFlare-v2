@@ -17,6 +17,11 @@ import CarbonCubePage from './components/CarbonCubePage';
 import GeneratorSolutionsPage from './components/GeneratorSolutionsPage';
 import PowerProjectsPage from './components/PowerProjectsPage';
 import AboutPage from './components/AboutPage';
+import MineX50Page from './components/MineX50Page';
+import MineX125Page from './components/MineX125Page';
+import MineX250Page from './components/MineX250Page';
+import MineX500Page from './components/MineX500Page';
+import MineX750Page from './components/MineX750Page';
 import PageLoader from './src/components/PageLoader';
 
 // Helper function to scroll to an element by ID with header offset
@@ -207,6 +212,11 @@ function App() {
   const isGeneratorSolutionsRoute = normalizedPath === '/generator-solutions';
   const isPowerProjectsRoute = normalizedPath === '/power-projects';
   const isAboutRoute = normalizedPath === '/about';
+  const isMineX50Route = normalizedPath === '/minex-50';
+  const isMineX125Route = normalizedPath === '/minex-125';
+  const isMineX250Route = normalizedPath === '/minex-250';
+  const isMineX500Route = normalizedPath === '/minex-500';
+  const isMineX750Route = normalizedPath === '/minex-750';
   
   // Show loader during route transitions
   if (isLoading) {
@@ -287,6 +297,66 @@ function App() {
           description="BlueFlare is an energy infrastructure company delivering intelligent, modular, and scalable power solutions for industrial, energy, and remote environments."
         />
         <AboutPage />
+      </>
+    );
+  }
+
+  if (isMineX50Route) {
+    return (
+      <>
+        <StructuredData 
+          title="MineX™ 50 | BlueFlare"
+          description="BlueFlare's smallest turnkey modular Bitcoin mining system, engineered for low-volume natural gas wells producing 25–40 mcf/d."
+        />
+        <MineX50Page />
+      </>
+    );
+  }
+
+  if (isMineX125Route) {
+    return (
+      <>
+        <StructuredData 
+          title="MineX™ 125 | BlueFlare"
+          description="Modular mining system for 50–80 mcf/d gas wells, balancing compact footprint with strong economic output."
+        />
+        <MineX125Page />
+      </>
+    );
+  }
+
+  if (isMineX250Route) {
+    return (
+      <>
+        <StructuredData 
+          title="MineX™ 250 | BlueFlare"
+          description="BlueFlare's flagship modular mining system for 100–150 mcf/d wells — the optimal economic sweet spot."
+        />
+        <MineX250Page />
+      </>
+    );
+  }
+
+  if (isMineX500Route) {
+    return (
+      <>
+        <StructuredData 
+          title="MineX™ 500 | BlueFlare"
+          description="High-capacity modular Bitcoin mining system for wells producing 200–275 mcf/d with air or hydro cooling."
+        />
+        <MineX500Page />
+      </>
+    );
+  }
+
+  if (isMineX750Route) {
+    return (
+      <>
+        <StructuredData 
+          title="MineX™ 750 | BlueFlare"
+          description="BlueFlare's highest-capacity modular Bitcoin mining system for industrial-scale gas monetization at 300–350 mcf/d."
+        />
+        <MineX750Page />
       </>
     );
   }

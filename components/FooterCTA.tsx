@@ -44,7 +44,7 @@ const FooterCTA: React.FC<FooterCTAProps> = ({ showMainCTA = true }) => {
         )}
 
         {/* Footer Links */}
-        <div className={`grid md:grid-cols-4 gap-12 border-t border-slate-800 pt-12 ${!showMainCTA ? 'mt-0' : ''}`}>
+        <div className={`grid md:grid-cols-5 gap-12 border-t border-slate-800 pt-12 ${!showMainCTA ? 'mt-0' : ''}`}>
             <div className="col-span-1 md:col-span-2">
                 <div className="flex flex-col gap-1 mb-6">
                     <div className="flex justify-start items-center">
@@ -75,6 +75,17 @@ const FooterCTA: React.FC<FooterCTAProps> = ({ showMainCTA = true }) => {
                     <li><a href="/carbon-cube" className="hover:text-brand-light transition-colors">Carbon Cube™</a></li>
                     <li><a href="/blueflare-os" className="hover:text-brand-light transition-colors">BlueFlare OS™</a></li>
                     <li><a href="/power-projects" className="hover:text-brand-light transition-colors">Power Projects</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 className="text-white font-bold mb-6">MineX™ Series</h4>
+                <ul className="space-y-4 text-slate-400 text-sm">
+                    <li><a href="/minex-50" className="hover:text-brand-light transition-colors">MineX™ 50</a></li>
+                    <li><a href="/minex-125" className="hover:text-brand-light transition-colors">MineX™ 125</a></li>
+                    <li><a href="/minex-250" className="hover:text-brand-light transition-colors">MineX™ 250</a></li>
+                    <li><a href="/minex-500" className="hover:text-brand-light transition-colors">MineX™ 500</a></li>
+                    <li><a href="/minex-750" className="hover:text-brand-light transition-colors">MineX™ 750</a></li>
                 </ul>
             </div>
 

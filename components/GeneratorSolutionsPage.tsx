@@ -86,23 +86,16 @@ const GeneratorSolutionsPage: React.FC = () => {
                 </motion.div>
 
                 <motion.div
-                  className="flex flex-col sm:flex-row gap-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <a
                     href="/contact"
-                    className="group px-8 py-4 bg-brand-blue text-white font-semibold rounded-lg shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/50 transition-all active:scale-95 flex items-center justify-center gap-2"
+                    className="group px-8 py-4 bg-brand-blue text-white font-semibold rounded-lg shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/50 transition-all active:scale-95 inline-flex items-center justify-center gap-2"
                   >
                     Request a Quote
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <a
-                    href="/contact"
-                    className="px-8 py-4 bg-transparent border border-white/10 text-white font-semibold rounded-lg hover:bg-white/5 hover:border-white/30 transition-all flex items-center justify-center"
-                  >
-                    Schedule Service
                   </a>
                 </motion.div>
               </div>
@@ -337,21 +330,13 @@ const GeneratorSolutionsPage: React.FC = () => {
                 From equipment selection to installation and ongoing maintenance, BlueFlare delivers turnkey generator solutions for industrial and remote operations.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                <a
-                  href="/contact"
-                  className="bg-white text-brand-blue font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
-                >
-                  Request a Quote
-                  <ArrowRight size={20} />
-                </a>
-                <a
-                  href="/contact"
-                  className="bg-transparent border-2 border-white/30 text-white font-bold px-10 py-4 rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 inline-flex items-center justify-center"
-                >
-                  Contact Us
-                </a>
-              </div>
+              <a
+                href="/contact"
+                className="bg-white text-brand-blue font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2 relative z-10"
+              >
+                Request a Quote
+                <ArrowRight size={20} />
+              </a>
             </motion.div>
           </div>
         </section>
