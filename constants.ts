@@ -12,8 +12,8 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Power Projects', href: '/power-projects' },
     ]
   },
-  { label: 'Why BlueFlare', href: '#why-us' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Why BlueFlare', href: '/#why-blueflare' },
+  { label: 'Projects', href: '/#projects' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'About', href: '/about' },
 ];

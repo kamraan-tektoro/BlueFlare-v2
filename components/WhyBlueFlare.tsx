@@ -12,7 +12,7 @@ const pillars = [
 
 const WhyBlueFlare: React.FC = () => {
   return (
-    <Section id="why-us" className="relative overflow-hidden bg-brand-dark">
+    <Section id="why-blueflare" className="relative overflow-hidden bg-brand-dark">
       {/* Radial Gradient Background to match How We Help */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-brand-blue/10 rounded-full blur-[80px] md:blur-[120px]" />
 
