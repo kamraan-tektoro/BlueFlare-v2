@@ -155,7 +155,7 @@ export const StructuredData: React.FC<SEOProps> = ({
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Carbon Cube™",
+            "name": "Carbon Cube",
             "description": "Portable methane mitigation and instrument air system for oil & gas field deployment.",
             "url": `${BASE_URL}/carbon-cube`
           }
@@ -164,7 +164,7 @@ export const StructuredData: React.FC<SEOProps> = ({
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "BlueFlare OS™",
+            "name": "BlueFlare OS",
             "description": "Operational technology platform built on Ignition SCADA with integrated DCIM for real-time monitoring and automation.",
             "url": `${BASE_URL}/blueflare-os`
           }
@@ -204,8 +204,8 @@ export const StructuredData: React.FC<SEOProps> = ({
         '/contact': 'Contact',
         '/gallery': 'Gallery',
         '/generator-solutions': 'Generator Solutions',
-        '/carbon-cube': 'Carbon Cube™',
-        '/blueflare-os': 'BlueFlare OS™',
+        '/carbon-cube': 'Carbon Cube',
+        '/blueflare-os': 'BlueFlare OS',
         '/power-projects': 'Power Projects',
         '/minex-50': 'MineX™ 50',
         '/minex-125': 'MineX™ 125',

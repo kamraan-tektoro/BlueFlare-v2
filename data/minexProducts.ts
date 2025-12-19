@@ -51,7 +51,7 @@ export const MINEX_PRODUCTS: Record<string, MineXProduct> = {
     overview: [
       'The MineX™-50 is BlueFlare\'s smallest turnkey modular Bitcoin mining system, engineered specifically for low-volume natural gas wells producing 25–40 mcf/d.',
       'This unit enables producers to monetize even the smallest stranded or marginal gas assets by converting field gas into high-efficiency computational power.',
-      'As a fully packaged system, the MineX-50 includes a winterized enclosure, generator, power distribution, cooling, and optional ASIC hardware — all remotely monitored and optimized through the BlueFlare Edge Box™.'
+      'As a fully packaged system, the MineX-50 includes a winterized enclosure, generator, power distribution, cooling, and optional ASIC hardware — all remotely monitored and optimized through the BlueFlare Edge Box.'
     ],
     idealFor: [
       'Low-flow active wells',
@@ -178,7 +178,7 @@ export const MINEX_PRODUCTS: Record<string, MineXProduct> = {
     overview: [
       'The MineX™-125 is engineered for Alberta producers operating 50–80 mcf/d gas wells, where traditional power generation or pipeline tie-ins are uneconomic.',
       'This modular, winterized, and fully autonomous system converts low-value natural gas into high-revenue digital power with minimal operational burden.',
-      'With support for 24–36 ASIC miners, an insulated enclosure, and the BlueFlare Edge Box™ for automated management, the MineX-125 strikes a balance between compact footprint and strong economic output.'
+      'With support for 24–36 ASIC miners, an insulated enclosure, and the BlueFlare Edge Box for automated management, the MineX-125 strikes a balance between compact footprint and strong economic output.'
     ],
     idealFor: [
       'Medium-sized marginal wells',
@@ -234,7 +234,7 @@ export const MINEX_PRODUCTS: Record<string, MineXProduct> = {
         specs: [
           { label: 'Rack Capacity', value: '24–36 ASIC miners' },
           { label: 'Compatible Models', value: 'S19, S19j Pro, S19 XP, M30S, M30S++' },
-          { label: 'Network Control', value: 'BlueFlare Edge Box™ centralized management' },
+          { label: 'Network Control', value: 'BlueFlare Edge Box centralized management' },
           { label: 'Average Hashrate Range', value: '2.0–4.0 PH/s (model dependent)' }
         ]
       },
@@ -360,7 +360,7 @@ export const MINEX_PRODUCTS: Record<string, MineXProduct> = {
         specs: [
           { label: 'Rack Capacity', value: '48–72 ASIC miners' },
           { label: 'Compatible Models', value: 'S19, S19j Pro, S19 XP, S21, M30S++' },
-          { label: 'Network Control', value: 'BlueFlare Edge Box™ centralized management' },
+          { label: 'Network Control', value: 'BlueFlare Edge Box centralized management' },
           { label: 'Average Hashrate Range', value: '5–9 PH/s (model dependent)' }
         ]
       },
@@ -488,7 +488,7 @@ export const MINEX_PRODUCTS: Record<string, MineXProduct> = {
         specs: [
           { label: 'Rack Capacity', value: '96–126 ASIC miners' },
           { label: 'Compatible Models', value: 'S19, S19j Pro, S19 XP, S21 (hydro), M30S++' },
-          { label: 'Network Control', value: 'Autonomous via BlueFlare Edge Box™' },
+          { label: 'Network Control', value: 'Autonomous via BlueFlare Edge Box' },
           { label: 'Average Hashrate Range', value: '10–15 PH/s (model dependent)' }
         ]
       },
@@ -617,7 +617,7 @@ export const MINEX_PRODUCTS: Record<string, MineXProduct> = {
         specs: [
           { label: 'Rack Capacity', value: '168–180 ASIC miners' },
           { label: 'Compatible Models', value: 'S19, S19 XP, S21 hydro, M30S++' },
-          { label: 'Network Control', value: 'BlueFlare Edge Box™ centralized autonomous management' },
+          { label: 'Network Control', value: 'BlueFlare Edge Box centralized autonomous management' },
           { label: 'Average Hashrate Range', value: '18–28 PH/s (model dependent)' }
         ]
       },

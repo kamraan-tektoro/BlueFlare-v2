@@ -7,8 +7,8 @@ export const NAV_ITEMS: NavItem[] = [
     href: '#solutions',
     children: [
       { label: 'Generator Solutions', href: '/generator-solutions' },
-      { label: 'Carbon Cube™', href: '/carbon-cube' },
-      { label: 'BlueFlare OS™', href: '/blueflare-os' },
+      { label: 'Carbon Cube', href: '/carbon-cube' },
+      { label: 'BlueFlare OS', href: '/blueflare-os' },
       { label: 'Power Projects', href: '/power-projects' },
     ]
   },
@@ -38,14 +38,14 @@ export const SERVICES: ServiceItem[] = [
     href: '/generator-solutions'
   },
   {
-    title: 'Carbon Cube™',
+    title: 'Carbon Cube',
     description: 'Portable methane mitigation + instrument air in a compact field-deployable enclosure.',
     icon: Cpu,
     tags: ['Portable', 'Methane Mitigation', 'Field-Ready'],
     href: '/carbon-cube'
   },
   {
-    title: 'BlueFlare OS™',
+    title: 'BlueFlare OS',
     description: 'Ignition SCADA + DCIM integration for monitoring, control, and analytics.',
     icon: Activity,
     tags: ['SCADA', 'DCIM', 'Analytics'],

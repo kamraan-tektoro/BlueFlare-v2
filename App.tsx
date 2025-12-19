@@ -254,7 +254,7 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="BlueFlare OS™ | BlueFlare Energy"
+          title="BlueFlare OS | BlueFlare Energy"
           description="BlueFlare's operational technology platform built on the Ignition SCADA framework with integrated DCIM functionality for real-time monitoring, automation, and analytics."
           path="/blueflare-os"
         />
@@ -267,7 +267,7 @@ function App() {
     return (
       <>
         <StructuredData 
-          title="Carbon Cube™ | BlueFlare Energy"
+          title="Carbon Cube | BlueFlare Energy"
           description="Portable methane mitigation and instrument air system for oil & gas field deployment."
           path="/carbon-cube"
         />

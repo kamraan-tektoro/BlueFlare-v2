@@ -454,7 +454,7 @@ const MineXProductPage: React.FC<MineXProductPageProps> = ({ product }) => {
                   <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                     BlueFlare{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow">
-                      Edge Box™
+                      Edge Box
                     </span>
                   </h2>
 

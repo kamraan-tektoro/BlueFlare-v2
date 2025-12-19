@@ -73,7 +73,7 @@ const BlueFlareOSPage: React.FC = () => {
                   <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
                     BlueFlare{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow">
-                      OS™
+                      OS
                     </span>
                   </h1>
 
@@ -111,7 +111,7 @@ const BlueFlareOSPage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-white font-bold text-lg">Platform Status</h3>
-                      <p className="text-slate-400 text-sm">BlueFlare OS™</p>
+                      <p className="text-slate-400 text-sm">BlueFlare OS</p>
                     </div>
                   </div>
 
@@ -146,17 +146,17 @@ const BlueFlareOSPage: React.FC = () => {
                 <h2 className="text-3xl sm:text-4xl font-bold text-white">
                   What is{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow">
-                    BlueFlare OS™
+                    BlueFlare OS
                   </span>
                   ?
                 </h2>
 
                 <div className="space-y-4 text-slate-400 leading-relaxed">
                   <p>
-                    BlueFlare OS™ (Ignite OS) is BlueFlare's proprietary operational technology platform built on the Ignition SCADA framework with integrated DCIM functionality. The platform provides real-time monitoring, automation, control logic, telemetry, and analytics across distributed energy infrastructure, industrial power systems, and remote assets.
+                    BlueFlare OS (Ignite OS) is BlueFlare's proprietary operational technology platform built on the Ignition SCADA framework with integrated DCIM functionality. The platform provides real-time monitoring, automation, control logic, telemetry, and analytics across distributed energy infrastructure, industrial power systems, and remote assets.
                   </p>
                   <p>
-                    Designed for live field operations, BlueFlare OS™ enables autonomous system control, centralized oversight, and secure remote management of power generation, emissions mitigation systems, and industrial instrumentation—supporting both grid-connected and off-grid environments.
+                    Designed for live field operations, BlueFlare OS enables autonomous system control, centralized oversight, and secure remote management of power generation, emissions mitigation systems, and industrial instrumentation—supporting both grid-connected and off-grid environments.
                   </p>
                 </div>
               </motion.div>
@@ -345,7 +345,7 @@ const BlueFlareOSPage: React.FC = () => {
                 Operate smarter across distributed infrastructure.
               </h2>
               <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-10 relative z-10">
-                BlueFlare OS™ delivers the visibility, automation, and control you need to manage complex energy systems at scale.
+                BlueFlare OS delivers the visibility, automation, and control you need to manage complex energy systems at scale.
               </p>
 
               <a

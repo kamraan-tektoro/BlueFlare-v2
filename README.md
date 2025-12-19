@@ -87,7 +87,7 @@ The site includes comprehensive SEO features for optimal search engine visibilit
 
 The XML sitemap (`public/sitemap.xml`) includes all 13 pages:
 - Homepage, About, Contact, Gallery
-- Solutions: Generator Solutions, Carbon Cube™, BlueFlare OS™, Power Projects
+- Solutions: Generator Solutions, Carbon Cube, BlueFlare OS, Power Projects
 - Products: MineX™ 50, 125, 250, 500, 750
 
 **Update the sitemap** when adding new pages or changing URLs.
@@ -152,8 +152,6 @@ import { StructuredData } from './components/SEO';
 1. Add page to `public/sitemap.xml` with appropriate priority
 2. Add `StructuredData` component with title, description, and path
 3. For products: Include `type="product"` and `product` props
-4. Verify meta tags in browser DevTools or [Google Rich Results Test](https://search.google.com/test/rich-results)
-
 ## License
 
 © BlueFlare Energy. All rights reserved.

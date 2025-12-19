@@ -71,7 +71,7 @@ const CarbonCubePage: React.FC = () => {
                   <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
                     CARBON{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow">
-                      CUBE™
+                      CUBE
                     </span>
                   </h1>
 
@@ -110,7 +110,7 @@ const CarbonCubePage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-white font-bold text-lg">At-a-Glance</h3>
-                      <p className="text-slate-400 text-sm">Carbon Cube™</p>
+                      <p className="text-slate-400 text-sm">Carbon Cube</p>
                     </div>
                   </div>
 
@@ -145,14 +145,14 @@ const CarbonCubePage: React.FC = () => {
                 <h2 className="text-3xl sm:text-4xl font-bold text-white">
                   What is{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow">
-                    Carbon Cube™
+                    Carbon Cube
                   </span>
                   ?
                 </h2>
 
                 <div className="space-y-4 text-slate-400 leading-relaxed">
                   <p>
-                    The BlueFlare Carbon Cube™ is a fully integrated, portable methane mitigation and instrument air system housed in a compact 6' steel enclosure. Engineered for oil & gas field deployment, Carbon Cube enables emissions reduction, reliable instrument air generation, and carbon credit readiness—while operating autonomously with minimal generator runtime.
+                    The BlueFlare Carbon Cube is a fully integrated, portable methane mitigation and instrument air system housed in a compact 6' steel enclosure. Engineered for oil & gas field deployment, Carbon Cube enables emissions reduction, reliable instrument air generation, and carbon credit readiness—while operating autonomously with minimal generator runtime.
                   </p>
                   <p>
                     Carbon Cube combines hybrid power, intelligent automation, and remote monitoring to deliver ESG-aligned infrastructure without sacrificing operational reliability.
@@ -314,7 +314,7 @@ const CarbonCubePage: React.FC = () => {
                 Deploy methane mitigation without sacrificing reliability.
               </h2>
               <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-10 relative z-10">
-                Carbon Cube™ delivers ESG-aligned infrastructure with autonomous operation and intelligent automation for oil & gas field deployment.
+                Carbon Cube delivers ESG-aligned infrastructure with autonomous operation and intelligent automation for oil & gas field deployment.
               </p>
 
               <a
