@@ -1,19 +1,27 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/images/*.{png,jpg,gif,ico,svg}", "/assets/*", "/*.{js,css,png,jpg,gif,ico,svg,woff,woff2,ttf,eot}"]
-  },
-  "routes": [
-    {
-      "route": "/*",
-      "rewrite": "/index.html"
-    }
-  ],
-  "responseOverrides": {
-    "404": {
-      "rewrite": "/index.html",
-      "statusCode": 200
-    }
+    "exclude": [
+      "/assets/*",
+      "*.js",
+      "*.css",
+      "*.png",
+      "*.jpg",
+      "*.jpeg",
+      "*.gif",
+      "*.ico",
+      "*.svg",
+      "*.webp",
+      "*.woff",
+      "*.woff2",
+      "*.ttf",
+      "*.eot",
+      "*.mp4",
+      "*.webm",
+      "*.mov",
+      "*.json",
+      "*.xml",
+      "*.txt"
+    ]
   }
 }
-
