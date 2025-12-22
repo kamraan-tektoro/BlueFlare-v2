@@ -123,14 +123,28 @@ const ContactForm: React.FC = () => {
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
-  const trackSubmit = () => {
+  const trackSubmit = (formDataToTrack: FormData) => {
     // Track with Umami if available (guard against crashes)
     try {
       if (typeof window !== 'undefined' && window.umami?.track) {
-        window.umami.track('contact_submit');
+        // Track event with full form data
+        window.umami.track('contact_submit', {
+          // Full form data
+          firstName: formDataToTrack.firstName,
+          lastName: formDataToTrack.lastName,
+          email: formDataToTrack.email,
+          phone: formDataToTrack.phone || '',
+          message: formDataToTrack.message,
+          // Additional metadata
+          messageLength: formDataToTrack.message.length,
+          hasPhone: !!formDataToTrack.phone,
+          pageUrl: typeof window !== 'undefined' ? window.location.pathname : '',
+          timestamp: new Date().toISOString(),
+        });
       }
     } catch (e) {
       // Silently ignore tracking errors
+      console.error('Umami tracking error:', e);
     }
   };
 
@@ -202,8 +216,9 @@ const ContactForm: React.FC = () => {
         setTouched({});
         setErrors({});
         
-        // Track successful submission
-        trackSubmit();
+        // Track successful submission with form metadata
+        // Note: We use the original formData before clearing, not the cleared state
+        trackSubmit(formData);
       } else if (response.status === 429) {
         // Rate limited
         setSubmitStatus('rate_limited');
