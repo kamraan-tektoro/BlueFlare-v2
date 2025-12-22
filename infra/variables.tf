@@ -178,7 +178,7 @@ variable "gatus_email_smtp_password" {
 variable "gatus_email_to" {
   type        = string
   description = "Email address to send Gatus alerts to (optional). Can reuse graph_to_email"
-  default     = ""
+  default     = "k@tektoro.com"
 }
 
 # Option: Use Graph API via webhook (requires custom function)

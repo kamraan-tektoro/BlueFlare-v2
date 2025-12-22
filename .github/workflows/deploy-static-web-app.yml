@@ -1,0 +1,78 @@
+# Deploy Static Web App (React/Vite Website)
+#
+# Triggers on push to main when website files change.
+# Builds the React/Vite project and deploys to Azure Static Web Apps.
+#
+# Required secrets:
+#   AZURE_STATIC_WEB_APPS_API_TOKEN - Get from Azure Portal:
+#     Static Web App → Deployment → Manage deployment token
+
+name: Deploy Static Web App
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'components/**'
+      - 'src/**'
+      - 'public/**'
+      - '*.tsx'
+      - '*.ts'
+      - '*.json'
+      - 'vite.config.ts'
+      - 'tailwind.config.js'
+      - 'postcss.config.js'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'index.html'
+      - 'index.tsx'
+      - 'App.tsx'
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20.x'
+  APP_LOCATION: '/' # Root of the repository
+  OUTPUT_LOCATION: 'dist' # Vite build output directory
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Static Web App
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: false
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+        env:
+          # Optional: Set build-time env vars if needed
+          VITE_LEAD_CAPTURE_URL: ${{ secrets.VITE_LEAD_CAPTURE_URL || 'https://blueflare-website-leads-prod.azurewebsites.net/api/contact' }}
+
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: ${{ env.APP_LOCATION }}
+          output_location: ${{ env.OUTPUT_LOCATION }}
+          skip_app_build: true # We build manually above
+
