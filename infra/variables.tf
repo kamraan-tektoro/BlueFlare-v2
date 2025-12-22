@@ -114,39 +114,88 @@ variable "postgres_storage_mb" {
   default = 32768
 }
 
-# ---------- Uptime Kuma VM ----------
-variable "uptimekuma_admin_ssh_public_key" {
+# ---------- Gatus Status Monitoring ----------
+# MIT License - https://github.com/TwiN/gatus
+variable "gatus_image" {
   type        = string
-  description = "SSH public key for the Uptime Kuma VM admin user (azureuser)"
+  description = "Gatus container image"
+  default     = "twinproduction/gatus:latest"
+}
+
+variable "gatus_title" {
+  type        = string
+  description = "Title shown in the Gatus dashboard"
+  default     = "BlueFlare Status"
+}
+
+# Gatus Alerting Configuration
+variable "gatus_slack_webhook_url" {
+  type        = string
+  description = "Slack webhook URL for Gatus alerts (optional)"
   sensitive   = true
+  default     = ""
 }
 
-variable "uptimekuma_allowed_ip_cidr" {
+variable "gatus_discord_webhook_url" {
   type        = string
-  description = "CIDR block allowed to access Uptime Kuma (e.g., your public IP: 203.0.113.10/32)"
-  default     = "0.0.0.0/0" # Default to allow all - should be overridden in production
+  description = "Discord webhook URL for Gatus alerts (optional)"
+  sensitive   = true
+  default     = ""
 }
 
-variable "uptimekuma_allow_public" {
-  type        = bool
-  description = "If true, allow port 3001 from anywhere (0.0.0.0/0). Otherwise only from uptimekuma_allowed_ip_cidr"
-  default     = false
-}
-
-variable "uptimekuma_vm_size" {
+variable "gatus_email_from" {
   type        = string
-  description = "Azure VM size for Uptime Kuma"
-  default     = "Standard_B2s_v2"
+  description = "Email address to send Gatus alerts from (optional). If using Microsoft 365, can reuse graph_from_user"
+  default     = ""
 }
 
-variable "uptimekuma_port" {
+variable "gatus_email_smtp_host" {
+  type        = string
+  description = "SMTP host for email alerts (optional). For Microsoft 365 use: smtp.office365.com"
+  default     = ""
+}
+
+variable "gatus_email_smtp_port" {
   type        = number
-  description = "Port for Uptime Kuma web UI"
-  default     = 3001
+  description = "SMTP port for email alerts"
+  default     = 587
 }
 
-variable "uptimekuma_container_image" {
+variable "gatus_email_smtp_username" {
   type        = string
-  description = "Uptime Kuma Docker image"
-  default     = "louislam/uptime-kuma:latest"
+  description = "SMTP username for email alerts (optional). For Microsoft 365, use the email address"
+  sensitive   = true
+  default     = ""
+}
+
+variable "gatus_email_smtp_password" {
+  type        = string
+  description = "SMTP password for email alerts (optional). For Microsoft 365, use an App Password (not the Graph client secret)"
+  sensitive   = true
+  default     = ""
+}
+
+variable "gatus_email_to" {
+  type        = string
+  description = "Email address to send Gatus alerts to (optional). Can reuse graph_to_email"
+  default     = ""
+}
+
+# Option: Use Graph API via webhook (requires custom function)
+variable "gatus_webhook_url" {
+  type        = string
+  description = "Webhook URL for custom alerting (e.g., Azure Function that sends via Graph API)"
+  default     = ""
+}
+
+variable "gatus_alert_failure_threshold" {
+  type        = number
+  description = "Number of consecutive failures before sending alert"
+  default     = 3
+}
+
+variable "gatus_alert_success_threshold" {
+  type        = number
+  description = "Number of consecutive successes before resolving alert"
+  default     = 2
 }

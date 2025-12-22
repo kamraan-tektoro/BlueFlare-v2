@@ -322,3 +322,4 @@
 
 *Cost estimates based on Azure pricing as of December 2024. Actual costs may vary based on region (Central US), usage patterns, and Azure pricing updates.*
 
+

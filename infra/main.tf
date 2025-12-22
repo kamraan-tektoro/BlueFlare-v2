@@ -24,7 +24,9 @@ locals {
   # Short names for container apps (max 32 chars, lowercase alphanumeric and hyphens only)
   container_app_name_prefix = replace("${var.project}-${var.environment}", "blueflare-website", "bf")
   postgres_host             = azurerm_postgresql_flexible_server.pg.fqdn
-  postgres_conn             = "postgresql://${var.postgres_admin_user}:${local.postgres_password}@${azurerm_postgresql_flexible_server.pg.fqdn}:5432/${azurerm_postgresql_flexible_server_database.umami_db.name}?sslmode=require"
+  # URL-encode the password to handle special characters in DATABASE_URL
+  postgres_password_encoded = urlencode(local.postgres_password)
+  postgres_conn             = "postgresql://${var.postgres_admin_user}:${local.postgres_password_encoded}@${azurerm_postgresql_flexible_server.pg.fqdn}:5432/${azurerm_postgresql_flexible_server_database.umami_db.name}?sslmode=require"
 
   # Common tags for all resources
   common_tags = {
@@ -211,6 +213,14 @@ resource "azurerm_postgresql_flexible_server_configuration" "pgcrypto" {
   name      = "azure.extensions"
   server_id = azurerm_postgresql_flexible_server.pg.id
   value     = "pgcrypto"
+}
+
+# Allow non-SSL connections (required for Peekaping which doesn't support SSL config)
+# Note: This reduces security - consider VNet integration for production
+resource "azurerm_postgresql_flexible_server_configuration" "require_secure_transport" {
+  name      = "require_secure_transport"
+  server_id = azurerm_postgresql_flexible_server.pg.id
+  value     = "off"
 }
 
 # -----------------------------

@@ -36,19 +36,9 @@ output "postgres_fqdn" {
 }
 
 # -----------------------------
-# Uptime Kuma VM Outputs
+# Gatus Status Monitoring Outputs
 # -----------------------------
-output "uptimekuma_public_ip" {
-  value       = azurerm_public_ip.kuma_pip.ip_address
-  description = "Public IP address of the Uptime Kuma VM"
-}
-
-output "uptimekuma_url" {
-  value       = "http://${azurerm_public_ip.kuma_pip.ip_address}:${var.uptimekuma_port}"
-  description = "URL to access Uptime Kuma web UI"
-}
-
-output "uptimekuma_ssh_command" {
-  value       = "ssh azureuser@${azurerm_public_ip.kuma_pip.ip_address}"
-  description = "SSH command to connect to the Uptime Kuma VM"
+output "gatus_url" {
+  value       = "https://${azurerm_container_app.gatus.ingress[0].fqdn}"
+  description = "URL to access Gatus status monitoring dashboard"
 }
