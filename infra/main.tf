@@ -143,7 +143,8 @@ resource "azurerm_linux_function_app" "func" {
     }
 
     cors {
-      allowed_origins = [var.site_origin]
+      allowed_origins     = ["*"] # Allow all origins - function code handles specific origins
+      support_credentials = false
     }
   }
 

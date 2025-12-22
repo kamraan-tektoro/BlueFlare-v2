@@ -20,25 +20,47 @@ import { sendNotificationEmail, isEmailEnabled } from '../shared/graphEmail.js';
 const CORS_ALLOW_ORIGIN = process.env.CORS_ALLOW_ORIGIN || '*';
 
 /**
+ * Gets the allowed origin for CORS based on request
+ */
+function getAllowedOrigin(request: HttpRequest): string {
+  const requestOrigin = request.headers.get('origin');
+  const allowedOrigin = CORS_ALLOW_ORIGIN;
+  
+  // If configured to allow all, return the request origin or *
+  if (allowedOrigin === '*' || allowedOrigin === '') {
+    return requestOrigin || '*';
+  }
+  
+  // If request origin matches allowed origin, return it
+  if (requestOrigin && (allowedOrigin.includes(requestOrigin) || requestOrigin.includes(allowedOrigin))) {
+    return requestOrigin;
+  }
+  
+  // Otherwise return configured origin
+  return allowedOrigin;
+}
+
+/**
  * Creates CORS headers for responses
  */
-function getCorsHeaders(): Record<string, string> {
+function getCorsHeaders(request: HttpRequest): Record<string, string> {
   return {
-    'Access-Control-Allow-Origin': CORS_ALLOW_ORIGIN,
+    'Access-Control-Allow-Origin': getAllowedOrigin(request),
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'Access-Control-Max-Age': '86400',
+    'Access-Control-Allow-Credentials': 'false',
   };
 }
 
 /**
  * Creates a JSON response with CORS headers
  */
-function jsonResponse(body: unknown, status: number = 200): HttpResponseInit {
+function jsonResponse(body: unknown, status: number = 200, request: HttpRequest): HttpResponseInit {
   return {
     status,
     headers: {
-      ...getCorsHeaders(),
+      ...getCorsHeaders(request),
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(body),
@@ -79,13 +101,13 @@ async function contactHandler(
   if (request.method === 'OPTIONS') {
     return {
       status: 204,
-      headers: getCorsHeaders(),
+      headers: getCorsHeaders(request),
     };
   }
 
   // Only allow POST
   if (request.method !== 'POST') {
-    return jsonResponse({ error: 'Method not allowed' }, 405);
+    return jsonResponse({ error: 'Method not allowed' }, 405, request);
   }
 
   try {
@@ -94,14 +116,14 @@ async function contactHandler(
     try {
       body = await request.json();
     } catch {
-      return jsonResponse({ error: 'Invalid JSON body' }, 400);
+      return jsonResponse({ error: 'Invalid JSON body' }, 400, request);
     }
 
     // Validate payload
     const validation = validateContactPayload(body);
     if (!validation.valid) {
       context.log(`Validation failed: ${validation.error}`);
-      return jsonResponse({ error: validation.error }, 400);
+      return jsonResponse({ error: validation.error }, 400, request);
     }
 
     // Extract and sanitize payload
@@ -113,7 +135,7 @@ async function contactHandler(
       const isRateLimited = await checkRateLimit(clientIp, payload.userAgent || '');
       if (isRateLimited) {
         context.log(`Rate limited: IP=${clientIp}`);
-        return jsonResponse({ error: 'Too many requests. Please try again tomorrow.' }, 429);
+        return jsonResponse({ error: 'Too many requests. Please try again tomorrow.' }, 429, request);
       }
     } catch (error) {
       context.error('Rate limit check failed:', error);
@@ -127,7 +149,7 @@ async function contactHandler(
       context.log(`Lead stored: ${leadId}`);
     } catch (error) {
       context.error('Failed to store lead:', error);
-      return jsonResponse({ error: 'Failed to process submission' }, 500);
+      return jsonResponse({ error: 'Failed to process submission' }, 500, request);
     }
 
     // Send email notification (non-blocking - don't fail request if email fails)
@@ -144,11 +166,11 @@ async function contactHandler(
     }
 
     // Success
-    return jsonResponse({ ok: true }, 200);
+    return jsonResponse({ ok: true }, 200, request);
 
   } catch (error) {
     context.error('Unexpected error:', error);
-    return jsonResponse({ error: 'Internal server error' }, 500);
+    return jsonResponse({ error: 'Internal server error' }, 500, request);
   }
 }
 
