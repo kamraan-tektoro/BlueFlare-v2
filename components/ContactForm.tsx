@@ -223,8 +223,16 @@ const ContactForm: React.FC = () => {
     } catch (error) {
       clearTimeout(timeoutId);
       
-      if (error instanceof Error && error.name === 'AbortError') {
-        setServerErrorMessage('Request timed out. Please check your connection and try again.');
+      if (error instanceof Error) {
+        if (error.name === 'AbortError') {
+          setServerErrorMessage('Request timed out. Please check your connection and try again.');
+        } else if (error.message.includes('CORS') || error.message.includes('NetworkError') || error.message.includes('Failed to fetch')) {
+          setServerErrorMessage('Connection error. Please check your internet connection or try again later. If the problem persists, contact us directly.');
+        } else {
+          setServerErrorMessage(error.message || 'Something went wrong. Please try again.');
+        }
+      } else {
+        setServerErrorMessage('Something went wrong. Please try again.');
       }
       
       console.error('Form submission error:', error);
@@ -472,6 +480,7 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
+
 
 
 
