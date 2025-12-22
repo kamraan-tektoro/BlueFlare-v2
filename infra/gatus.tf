@@ -4,95 +4,15 @@
 # https://github.com/TwiN/gatus - MIT License
 # -----------------------------
 
-# Build alerting configuration
 locals {
   # Webhook URL for Graph API email alerts (auto-configured if Graph credentials exist)
   gatus_webhook_url_auto = var.gatus_webhook_url != "" ? var.gatus_webhook_url : (
     var.graph_tenant_id != "" && var.graph_client_id != "" && var.graph_client_secret != "" ?
     "https://${azurerm_linux_function_app.func.default_hostname}/api/gatus-webhook" : ""
   )
-  # Slack alerting config
-  slack_alerting_config = var.gatus_slack_webhook_url != "" ? join("\n", [
-    "  slack:",
-    "    webhook-url: \"${var.gatus_slack_webhook_url}\"",
-    "    default-alert:",
-    "      failure-threshold: ${var.gatus_alert_failure_threshold}",
-    "      success-threshold: ${var.gatus_alert_success_threshold}",
-    "      send-on-resolved: true"
-  ]) : ""
 
-  # Discord alerting config
-  discord_alerting_config = var.gatus_discord_webhook_url != "" ? join("\n", [
-    "  discord:",
-    "    webhook-url: \"${var.gatus_discord_webhook_url}\"",
-    "    default-alert:",
-    "      failure-threshold: ${var.gatus_alert_failure_threshold}",
-    "      success-threshold: ${var.gatus_alert_success_threshold}",
-    "      send-on-resolved: true"
-  ]) : ""
-
-  # Email alerting config
-  email_alerting_config = var.gatus_email_from != "" && var.gatus_email_to != "" ? join("\n", [
-    "  email:",
-    "    from: \"${var.gatus_email_from}\"",
-    "    to: \"${var.gatus_email_to}\"",
-    "    host: \"${var.gatus_email_smtp_host}\"",
-    "    port: ${var.gatus_email_smtp_port}",
-    "    username: \"${var.gatus_email_smtp_username}\"",
-    "    password: \"${var.gatus_email_smtp_password}\"",
-    "    default-alert:",
-    "      failure-threshold: ${var.gatus_alert_failure_threshold}",
-    "      success-threshold: ${var.gatus_alert_success_threshold}",
-    "      send-on-resolved: true"
-  ]) : ""
-
-  # Webhook alerting config (for Graph API via Azure Function)
-  webhook_alerting_config = local.gatus_webhook_url_auto != "" ? join("\n", [
-    "  custom:",
-    "    - url: \"${local.gatus_webhook_url_auto}\"",
-    "      method: POST",
-    "      default-alert:",
-    "        failure-threshold: ${var.gatus_alert_failure_threshold}",
-    "        success-threshold: ${var.gatus_alert_success_threshold}",
-    "        send-on-resolved: true"
-  ]) : ""
-
-  # Build alerts list for endpoints
-  slack_alert = var.gatus_slack_webhook_url != "" ? join("\n", [
-    "      - type: slack",
-    "        failure-threshold: ${var.gatus_alert_failure_threshold}",
-    "        success-threshold: ${var.gatus_alert_success_threshold}",
-    "        send-on-resolved: true"
-  ]) : ""
-
-  discord_alert = var.gatus_discord_webhook_url != "" ? join("\n", [
-    "      - type: discord",
-    "        failure-threshold: ${var.gatus_alert_failure_threshold}",
-    "        success-threshold: ${var.gatus_alert_success_threshold}",
-    "        send-on-resolved: true"
-  ]) : ""
-
-  email_alert = var.gatus_email_from != "" && var.gatus_email_to != "" ? join("\n", [
-    "      - type: email",
-    "        failure-threshold: ${var.gatus_alert_failure_threshold}",
-    "        success-threshold: ${var.gatus_alert_success_threshold}",
-    "        send-on-resolved: true"
-  ]) : ""
-
-  webhook_alert = local.gatus_webhook_url_auto != "" ? join("\n", [
-    "      - type: custom",
-    "        failure-threshold: ${var.gatus_alert_failure_threshold}",
-    "        success-threshold: ${var.gatus_alert_success_threshold}",
-    "        send-on-resolved: true"
-  ]) : ""
-
-  # Combine all alerts
-  endpoint_alerts = trimspace(join("\n", compact([
-    local.slack_alert,
-    local.discord_alert,
-    local.email_alert,
-    local.webhook_alert
-  ])))
+  # Check if any alerting is enabled
+  alerting_enabled = local.gatus_webhook_url_auto != "" || var.gatus_slack_webhook_url != "" || var.gatus_discord_webhook_url != ""
 }
 
 # -----------------------------
@@ -125,14 +45,15 @@ resource "azurerm_container_app" "gatus" {
 
       command = ["/bin/sh", "-c"]
       args = [<<-EOT
-        cat > /config/config.yaml << 'EOF'
+        cat > /config/config.yaml << 'CONFIGEOF'
 ui:
   title: "${var.gatus_title}"
   header: "${var.gatus_title}"
 
 storage:
   type: memory
-${length(compact([local.slack_alerting_config, local.discord_alerting_config, local.email_alerting_config, local.webhook_alerting_config])) > 0 ? "\nalerting:\n" : ""}${local.slack_alerting_config != "" ? "${local.slack_alerting_config}\n" : ""}${local.discord_alerting_config != "" ? "${local.discord_alerting_config}\n" : ""}${local.email_alerting_config != "" ? "${local.email_alerting_config}\n" : ""}${local.webhook_alerting_config != "" ? "${local.webhook_alerting_config}\n" : ""}endpoints:
+
+endpoints:
   - name: BlueFlare Website
     group: Website
     url: "${var.site_origin}"
@@ -140,7 +61,7 @@ ${length(compact([local.slack_alerting_config, local.discord_alerting_config, lo
     conditions:
       - "[STATUS] == 200"
       - "[RESPONSE_TIME] < 5000"
-${local.endpoint_alerts != "" ? "    alerts:\n${local.endpoint_alerts}\n" : ""}
+
   - name: Lead Capture API
     group: API
     url: "https://${azurerm_linux_function_app.func.default_hostname}/api/contact"
@@ -148,7 +69,7 @@ ${local.endpoint_alerts != "" ? "    alerts:\n${local.endpoint_alerts}\n" : ""}
     interval: 60s
     conditions:
       - "[STATUS] < 500"
-${local.endpoint_alerts != "" ? "    alerts:\n${local.endpoint_alerts}\n" : ""}
+
   - name: Umami Analytics
     group: Services
     url: "https://${azurerm_container_app.umami.ingress[0].fqdn}"
@@ -156,10 +77,10 @@ ${local.endpoint_alerts != "" ? "    alerts:\n${local.endpoint_alerts}\n" : ""}
     conditions:
       - "[STATUS] == 200"
       - "[RESPONSE_TIME] < 5000"
-${local.endpoint_alerts != "" ? "    alerts:\n${local.endpoint_alerts}\n" : ""}
-EOF
-        echo "Config created:"
+CONFIGEOF
+        echo "=== Gatus Config Created ==="
         cat /config/config.yaml
+        echo "==========================="
 EOT
       ]
 
