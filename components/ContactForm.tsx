@@ -126,9 +126,12 @@ const ContactForm: React.FC = () => {
   const trackSubmit = (formDataToTrack: FormData) => {
     // Track with Umami if available (guard against crashes)
     try {
+      console.log('[Umami Debug] trackSubmit called with:', formDataToTrack);
+      console.log('[Umami Debug] window.umami exists:', typeof window !== 'undefined' && !!window.umami);
+      console.log('[Umami Debug] window.umami.track exists:', typeof window !== 'undefined' && !!window.umami?.track);
+      
       if (typeof window !== 'undefined' && window.umami?.track) {
-        // Track event with full form data
-        window.umami.track('contact_submit', {
+        const eventData = {
           // Full form data
           firstName: formDataToTrack.firstName,
           lastName: formDataToTrack.lastName,
@@ -140,11 +143,15 @@ const ContactForm: React.FC = () => {
           hasPhone: !!formDataToTrack.phone,
           pageUrl: typeof window !== 'undefined' ? window.location.pathname : '',
           timestamp: new Date().toISOString(),
-        });
+        };
+        console.log('[Umami Debug] Sending event data:', eventData);
+        window.umami.track('contact_submit', eventData);
+        console.log('[Umami Debug] Event sent successfully');
+      } else {
+        console.warn('[Umami Debug] Umami not available, skipping tracking');
       }
     } catch (e) {
-      // Silently ignore tracking errors
-      console.error('Umami tracking error:', e);
+      console.error('[Umami Debug] Tracking error:', e);
     }
   };
 
@@ -203,9 +210,17 @@ const ContactForm: React.FC = () => {
 
       clearTimeout(timeoutId);
 
+      console.log('[Form Debug] Response status:', response.status, 'ok:', response.ok);
+
       if (response.ok) {
         // Success (HTTP 200-299)
+        console.log('[Form Debug] Success! About to track with formData:', formData);
         setSubmitStatus('success');
+        
+        // Track BEFORE clearing form data
+        trackSubmit(formData);
+        
+        // Now clear form
         setFormData({
           firstName: '',
           lastName: '',
@@ -215,10 +230,6 @@ const ContactForm: React.FC = () => {
         });
         setTouched({});
         setErrors({});
-        
-        // Track successful submission with form metadata
-        // Note: We use the original formData before clearing, not the cleared state
-        trackSubmit(formData);
       } else if (response.status === 429) {
         // Rate limited
         setSubmitStatus('rate_limited');
