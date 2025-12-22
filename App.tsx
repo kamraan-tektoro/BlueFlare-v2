@@ -160,34 +160,37 @@ function App() {
               return;
             }
             
-            // Don't intercept if it's the same path (unless it has a hash)
-            if (normalizedHref !== currentPath || hash) {
-              e.preventDefault();
+            // Always prevent default for same-origin links to avoid full page reload
+            e.preventDefault();
+            
+            // If it's the same path without a hash, do nothing (already on that page)
+            if (normalizedHref === currentPath && !hash) {
+              return;
+            }
+            
+            // Clear any existing timer
+            clearLoadingTimer();
+            
+            // Show loader immediately (unless staying on home page with hash)
+            if (normalizedHref !== currentPath) {
+              setIsLoading(true);
+            }
+            
+            // Update URL without reload
+            window.history.pushState({}, '', href);
+            
+            // Update path and hide loader after render
+            if (normalizedHref !== currentPath) {
+              setCurrentPath(normalizedHref);
               
-              // Clear any existing timer
-              clearLoadingTimer();
-              
-              // Show loader immediately (unless staying on home page with hash)
-              if (normalizedHref !== currentPath) {
-                setIsLoading(true);
-              }
-              
-              // Update URL without reload
-              window.history.pushState({}, '', href);
-              
-              // Update path and hide loader after render
-              if (normalizedHref !== currentPath) {
-                setCurrentPath(normalizedHref);
-                
-                loadingTimerRef.current = setTimeout(() => {
-                  setIsLoading(false);
-                }, 150);
-              } else if (hash) {
-                // Same page, just scroll to hash
-                setTimeout(() => {
-                  scrollToId(hash.slice(1));
-                }, 50);
-              }
+              loadingTimerRef.current = setTimeout(() => {
+                setIsLoading(false);
+              }, 150);
+            } else if (hash) {
+              // Same page, just scroll to hash
+              setTimeout(() => {
+                scrollToId(hash.slice(1));
+              }, 50);
             }
           }
         } catch (err) {
