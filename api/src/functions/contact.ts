@@ -69,23 +69,33 @@ function jsonResponse(body: unknown, status: number = 200, request: HttpRequest)
 
 /**
  * Extracts client IP from request headers
+ * Strips port number to ensure rate limiting works correctly
  */
 function getClientIp(request: HttpRequest): string {
+  let ip = '';
+  
   // Azure Functions behind proxies/load balancers
   const forwardedFor = request.headers.get('x-forwarded-for');
   if (forwardedFor) {
     // X-Forwarded-For can contain multiple IPs, take the first one
-    return forwardedFor.split(',')[0].trim();
-  }
-  
-  // Azure Functions specific header
-  const clientIp = request.headers.get('x-client-ip');
-  if (clientIp) {
-    return clientIp;
+    ip = forwardedFor.split(',')[0].trim();
+  } else {
+    // Azure Functions specific header
+    const clientIp = request.headers.get('x-client-ip');
+    if (clientIp) {
+      ip = clientIp;
+    } else {
+      return 'unknown';
+    }
   }
 
-  // Fallback
-  return 'unknown';
+  // Strip port number if present (e.g., "192.168.1.1:54321" -> "192.168.1.1")
+  // This ensures rate limiting works by IP address, not IP:PORT combination
+  if (ip.includes(':')) {
+    ip = ip.split(':')[0];
+  }
+
+  return ip;
 }
 
 /**
