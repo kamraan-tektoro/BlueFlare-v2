@@ -24,3 +24,26 @@ dist-ssr
 *.sw?
 
 /docs
+
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform/
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Azure Functions
+api/local.settings.json
+api/dist/
+# Terraform sensitive files
+infra/terraform.tfvars
+infra/*.tfstate
+infra/*.tfstate.backup

@@ -1,0 +1,52 @@
+# Deploy Azure Functions API
+#
+# Triggers on push to main when api/ files change.
+# Builds the TypeScript project and deploys to Azure Functions.
+#
+# Required secrets:
+#   AZURE_FUNCTIONAPP_PUBLISH_PROFILE - Download from Azure Portal:
+#     Function App → Get publish profile
+
+name: Deploy Azure Functions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'api/**'
+  workflow_dispatch:
+
+env:
+  AZURE_FUNCTIONAPP_NAME: blueflare-leads-prod
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'api'
+  NODE_VERSION: '20.x'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        working-directory: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        run: npm install
+
+      - name: Build TypeScript
+        working-directory: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        run: npm run build
+
+      - name: Deploy to Azure Functions
+        uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+

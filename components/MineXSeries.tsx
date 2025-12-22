@@ -106,3 +106,4 @@ const MineXSeries: React.FC = () => {
 export default MineXSeries;
 
 
+

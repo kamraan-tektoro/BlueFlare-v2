@@ -14,7 +14,6 @@ import {
   Wrench,
   MapPin,
   DollarSign,
-  Clock,
   Radio,
   Activity,
   TrendingUp,
@@ -588,7 +587,7 @@ const MineXProductPage: React.FC<MineXProductPageProps> = ({ product }) => {
               </h2>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <motion.div
                 className="bg-brand-navy/20 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:border-brand-blue/30 transition-colors"
                 initial={{ opacity: 0, y: 30 }}
@@ -629,25 +628,6 @@ const MineXProductPage: React.FC<MineXProductPageProps> = ({ product }) => {
                 </div>
                 <p className="text-slate-400 text-sm mb-2">Net Monthly Revenue</p>
                 <p className="text-white font-bold text-lg">{product.financialOverview.netMonthlyRevenue}</p>
-              </motion.div>
-
-              <motion.div
-                className="bg-brand-navy/20 backdrop-blur-sm border border-brand-blue/30 rounded-2xl p-6 text-center relative overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/10 to-transparent pointer-events-none" />
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-brand-blue/20 border border-brand-blue/30 flex items-center justify-center mx-auto mb-4">
-                    <Clock className="w-6 h-6 text-brand-glow" />
-                  </div>
-                  <p className="text-slate-400 text-sm mb-2">Expected Payback</p>
-                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-glow font-bold text-lg">
-                    {product.financialOverview.expectedPayback}
-                  </p>
-                </div>
               </motion.div>
             </div>
           </div>
