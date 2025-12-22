@@ -31,7 +31,7 @@ async function gatusWebhookHandler(
   }
 
   try {
-    const payload: GatusWebhookPayload = await request.json();
+    const payload = await request.json() as GatusWebhookPayload;
 
     // Validate required fields
     if (!payload.name || !payload.status || !payload.url) {
