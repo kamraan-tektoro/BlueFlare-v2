@@ -93,8 +93,6 @@ const FooterCTA: React.FC<FooterCTAProps> = ({ showMainCTA = true }) => {
                 <h4 className="text-white font-bold mb-6">Company</h4>
                 <ul className="space-y-4 text-slate-400 text-sm">
                     <li><a href="/about" className="hover:text-brand-light transition-colors">About Us</a></li>
-                    <li><a href="#" className="hover:text-brand-light transition-colors">Careers</a></li>
-                    <li><a href="#" className="hover:text-brand-light transition-colors">News & Insights</a></li>
                     <li><a href="/contact" className="hover:text-brand-light transition-colors">Contact</a></li>
                 </ul>
             </div>
