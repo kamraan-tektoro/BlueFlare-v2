@@ -323,12 +323,12 @@ function App() {
       <>
         <StructuredData 
           title="MineX™ 50 | BlueFlare Energy"
-          description="BlueFlare's smallest turnkey modular Bitcoin mining system, engineered for low-volume natural gas wells producing 25–40 mcf/d."
+          description="BlueFlare's smallest turnkey modular Bitcoin mining system, engineered for low-volume natural gas wells producing 12–20 mcf/d."
           path="/minex-50"
           type="product"
           product={{
             name: "MineX™ 50",
-            description: "Turnkey modular Bitcoin mining system for 25–40 mcf/d gas wells with 50–75 kW power output and 12–18 ASIC capacity.",
+            description: "Turnkey modular Bitcoin mining system for 12-20mcf/d gas wells with 50–75 kW power output and 12–18 ASIC capacity.",
             priceRange: "$48,100 – $76,350 USD",
             sku: "MINEX-50"
           }}
@@ -343,12 +343,12 @@ function App() {
       <>
         <StructuredData 
           title="MineX™ 125 | BlueFlare Energy"
-          description="Modular mining system for 50–80 mcf/d gas wells, balancing compact footprint with strong economic output."
+          description="Modular mining system for 25-35 mcf/d gas wells, balancing compact footprint with strong economic output."
           path="/minex-125"
           type="product"
           product={{
             name: "MineX™ 125",
-            description: "Modular Bitcoin mining system for 50–80 mcf/d gas wells with 100–150 kW power output and 24–36 ASIC capacity.",
+            description: "Modular Bitcoin mining system for 25-35 mcf/d gas wells with 100–150 kW power output and 24–36 ASIC capacity.",
             priceRange: "$76,600 – $119,100 USD",
             sku: "MINEX-125"
           }}
@@ -363,12 +363,12 @@ function App() {
       <>
         <StructuredData 
           title="MineX™ 250 | BlueFlare Energy"
-          description="BlueFlare's flagship modular mining system for 100–150 mcf/d wells — the optimal economic sweet spot."
+          description="BlueFlare's flagship modular mining system for 50-65 mcf/d wells — the optimal economic sweet spot."
           path="/minex-250"
           type="product"
           product={{
             name: "MineX™ 250",
-            description: "Flagship modular Bitcoin mining system for 100–150 mcf/d gas wells with 200–300 kW power output and 48–72 ASIC capacity.",
+            description: "Flagship modular Bitcoin mining system for 50-65 mcf/d gas wells with 200–300 kW power output and 48–72 ASIC capacity.",
             priceRange: "$137,600 – $163,100 USD",
             sku: "MINEX-250"
           }}
@@ -383,12 +383,12 @@ function App() {
       <>
         <StructuredData 
           title="MineX™ 500 | BlueFlare Energy"
-          description="High-capacity modular Bitcoin mining system for wells producing 200–275 mcf/d with air or hydro cooling."
+          description="High-capacity modular Bitcoin mining system for wells producing 85-115 mcf/d with air or hydro cooling."
           path="/minex-500"
           type="product"
           product={{
             name: "MineX™ 500",
-            description: "High-capacity modular Bitcoin mining system for 200–275 mcf/d gas wells with 400–550 kW power output and 96–126 ASIC capacity.",
+            description: "High-capacity modular Bitcoin mining system for 85-115mcf/d gas wells with 400–550 kW power output and 96–126 ASIC capacity.",
             priceRange: "$206,350 – $300,600 USD",
             sku: "MINEX-500"
           }}
@@ -403,12 +403,12 @@ function App() {
       <>
         <StructuredData 
           title="MineX™ 750 | BlueFlare Energy"
-          description="BlueFlare's highest-capacity modular Bitcoin mining system for industrial-scale gas monetization at 300–350 mcf/d."
+          description="BlueFlare's highest-capacity modular Bitcoin mining system for industrial-scale gas monetization at 150-185 mcf/d."
           path="/minex-750"
           type="product"
           product={{
             name: "MineX™ 750",
-            description: "Industrial-scale modular Bitcoin mining system for 300–350 mcf/d gas wells with 700–750 kW power output and 168–180 ASIC capacity.",
+            description: "Industrial-scale modular Bitcoin mining system for 150-185 mcf/d gas wells with 700–750 kW power output and 168–180 ASIC capacity.",
             priceRange: "$323,100 – $439,350 USD",
             sku: "MINEX-750"
           }}

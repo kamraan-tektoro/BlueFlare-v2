@@ -194,7 +194,7 @@ export const MINEX_CARDS: MineXCard[] = [
     icon: Package,
     stats: [
       { label: 'Power', value: '50–75 kW' },
-      { label: 'Gas', value: '25–40 mcf/d' },
+      { label: 'Gas', value: '12–20 mcf/d' },
       { label: 'ASICs', value: '12–18' },
       { label: 'Hashrate', value: '1.4–2.2 PH/s' }
     ],
@@ -208,7 +208,7 @@ export const MINEX_CARDS: MineXCard[] = [
     icon: Layers,
     stats: [
       { label: 'Power', value: '100–150 kW' },
-      { label: 'Gas', value: '50–80 mcf/d' },
+      { label: 'Gas', value: '25-35 mcf/d' },
       { label: 'ASICs', value: '24–36' },
       { label: 'Hashrate', value: '2.0–4.0 PH/s' }
     ],
@@ -222,7 +222,7 @@ export const MINEX_CARDS: MineXCard[] = [
     icon: Star,
     stats: [
       { label: 'Power', value: '200–300 kW' },
-      { label: 'Gas', value: '100–150 mcf/d' },
+      { label: 'Gas', value: '50-65 mcf/d' },
       { label: 'ASICs', value: '48–72' },
       { label: 'Hashrate', value: '4.5–7.5 PH/s' }
     ],
@@ -236,7 +236,7 @@ export const MINEX_CARDS: MineXCard[] = [
     icon: Factory,
     stats: [
       { label: 'Power', value: '400–550 kW' },
-      { label: 'Gas', value: '200–275 mcf/d' },
+      { label: 'Gas', value: '85-115 mcf/d' },
       { label: 'ASICs', value: '96–126' },
       { label: 'Hashrate', value: '10–15 PH/s' }
     ],
@@ -250,7 +250,7 @@ export const MINEX_CARDS: MineXCard[] = [
     icon: Building2,
     stats: [
       { label: 'Power', value: '700–750 kW' },
-      { label: 'Gas', value: '300–350 mcf/d' },
+      { label: 'Gas', value: '150-185 mcf/d' },
       { label: 'ASICs', value: '168–180' },
       { label: 'Hashrate', value: '18–28 PH/s' }
     ],
